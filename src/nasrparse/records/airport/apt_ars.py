@@ -3,8 +3,6 @@ from nasrparse.records.types import ArrestDeviceCode
 
 from ._base import Base
 
-FILE_NAME = "APT_ARS.csv"
-
 
 class APT_ARS(Base):
     rwy_id: str | None
@@ -26,7 +24,7 @@ class APT_ARS(Base):
         rwy_id: str,
         rwy_end_id: str,
         arrest_device_code: str,
-    ):
+    ) -> None:
         super().__init__(
             "airport_arresting",
             eff_date,
@@ -43,7 +41,7 @@ class APT_ARS(Base):
             to_nullable_string(arrest_device_code)
         )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"

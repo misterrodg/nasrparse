@@ -2,8 +2,6 @@ from nasrparse.functions.record import to_nullable_int, to_nullable_string
 
 from ._base import Base
 
-FILE_NAME = "APT_RMK.csv"
-
 
 class APT_RMK(Base):
     legacy_element_number: str | None
@@ -34,7 +32,7 @@ class APT_RMK(Base):
         element: str,
         ref_col_seq_no: str,
         remark: str,
-    ):
+    ) -> None:
         super().__init__(
             "airport_remark",
             eff_date,
@@ -52,7 +50,7 @@ class APT_RMK(Base):
         self.ref_col_seq_no = to_nullable_int(ref_col_seq_no)
         self.remark = to_nullable_string(remark)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"

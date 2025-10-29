@@ -2,8 +2,6 @@ from nasrparse.functions.record import to_nullable_string
 
 from ._base import Base
 
-FILE_NAME = "APT_CON.csv"
-
 
 class APT_CON(Base):
     title: str | None
@@ -43,7 +41,7 @@ class APT_CON(Base):
         zip_code: str,
         zip_plus_four: str,
         phone_no: str,
-    ):
+    ) -> None:
         super().__init__(
             "airport_contact",
             eff_date,
@@ -64,7 +62,7 @@ class APT_CON(Base):
         self.zip_plus_four = to_nullable_string(zip_plus_four)
         self.phone_no = to_nullable_string(phone_no)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"

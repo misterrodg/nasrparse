@@ -2,8 +2,6 @@ from nasrparse.functions import to_nullable_int, to_nullable_string
 
 from ._base import Base
 
-FILE_NAME = "APT_ATT.csv"
-
 
 class APT_ATT(Base):
     sked_seq_no: int | None
@@ -28,7 +26,7 @@ class APT_ATT(Base):
         month: str,
         day: str,
         hour: str,
-    ):
+    ) -> None:
         super().__init__(
             "airport_attendance",
             eff_date,
@@ -44,7 +42,7 @@ class APT_ATT(Base):
         self.day = to_nullable_string(day)
         self.hour = to_nullable_string(hour)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"

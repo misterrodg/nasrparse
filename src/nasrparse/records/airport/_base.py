@@ -44,7 +44,7 @@ class Base(TableBase):
         self.city = to_nullable_string(city)
         self.country_code = to_nullable_string(country_code)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"EFF_DATE={self.eff_date!r}, "
             f"SITE_NO={self.site_no!r}, "

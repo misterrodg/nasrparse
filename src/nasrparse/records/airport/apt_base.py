@@ -33,8 +33,6 @@ from ._base import Base
 
 from datetime import date
 
-FILE_NAME = "APT_BASE.csv"
-
 
 class APT_BASE(Base):
     region_code: RegionCode
@@ -296,7 +294,7 @@ class APT_BASE(Base):
         min_op_network: str,
         user_fee_flag: str,
         cta: str,
-    ):
+    ) -> None:
         super().__init__(
             "airports",
             eff_date,
@@ -429,17 +427,10 @@ class APT_BASE(Base):
         self.user_fee_flag = to_nullable_string(user_fee_flag)
         self.cta = to_nullable_string(cta)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"
-            f"EFF_DATE={self.eff_date!r}, "
-            f"SITE_NO={self.site_no!r}, "
-            f"SITE_TYPE_CODE={self.site_type_code!r}, "
-            f"STATE_CODE={self.state_code!r}, "
-            f"ARPT_ID={self.arpt_id!r}, "
-            f"CITY={self.city!r}, "
-            f"COUNTRY_CODE={self.country_code!r}, "
             f"REGION_CODE={self.region_code!r}, "
             f"ADO_CODE={self.ado_code!r}, "
             f"STATE_NAME={self.state_name!r}, "

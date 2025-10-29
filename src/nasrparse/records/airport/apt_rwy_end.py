@@ -21,8 +21,6 @@ from ._base import Base
 
 from datetime import date
 
-FILE_NAME = "APT_RWY_END.csv"
-
 
 class APT_RWY_END(Base):
     rwy_id: str | None
@@ -248,7 +246,7 @@ class APT_RWY_END(Base):
         lon_lahso_decimal: str,
         lahso_psn_source: str,
         rwy_end_lahso_psn_date: str,
-    ):
+    ) -> None:
         super().__init__(
             "airport_runway_end",
             eff_date,
@@ -357,7 +355,7 @@ class APT_RWY_END(Base):
             rwy_end_lahso_psn_date, "YYYY/MM/DD"
         )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"

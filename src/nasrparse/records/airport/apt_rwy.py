@@ -17,8 +17,6 @@ from ._base import Base
 
 from datetime import date
 
-FILE_NAME = "APT_RWY.csv"
-
 
 class APT_RWY(Base):
     rwy_id: str | None
@@ -85,7 +83,7 @@ class APT_RWY(Base):
         gross_wt_dw: str,
         gross_wt_dtw: str,
         gross_wt_ddtw: str,
-    ):
+    ) -> None:
         super().__init__(
             "airport_runway",
             eff_date,
@@ -125,7 +123,7 @@ class APT_RWY(Base):
         self.gross_wt_dtw = to_nullable_float(gross_wt_dtw)
         self.gross_wt_ddtw = to_nullable_float(gross_wt_ddtw)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"
