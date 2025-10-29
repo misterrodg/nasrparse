@@ -1,7 +1,9 @@
+from .altitude_structure_code import AltitudeStructureCode
 from .approach_light_code import ApproachLightCode
 from .arrest_device_code import ArrestDeviceCode
 from .asp_code import ASPCode
 from .beacon_color_code import BeaconColorCode
+from .boundary_type_code import BoundaryTypeCode
 from .condition_code import ConditionCode
 from .determination_code import DeterminationCode
 from .direction_code import DirectionCode
@@ -11,6 +13,7 @@ from .ils_code import ILSCode
 from .inspection_method_code import InspectionMethodCode
 from .inspector_code import InspectorCode
 from .light_schedule_code import LightScheduleCode
+from .location_type_code import LocationTypeCode
 from .mag_var_code import MagVarCode
 from .method_code import MethodCode
 from .nasp_code import NASPCode
@@ -37,10 +40,12 @@ from .vgsi_code import VGSICode
 from .wind_indicator_code import WindIndicatorCode
 
 __all__ = [
+    "AltitudeStructureCode",
     "ApproachLightCode",
     "ArrestDeviceCode",
     "ASPCode",
     "BeaconColorCode",
+    "BoundaryTypeCode",
     "ConditionCode",
     "DeterminationCode",
     "DirectionCode",
@@ -50,6 +55,7 @@ __all__ = [
     "InspectionMethodCode",
     "InspectorCode",
     "LightScheduleCode",
+    "LocationTypeCode",
     "MagVarCode",
     "MethodCode",
     "NASPCode",
