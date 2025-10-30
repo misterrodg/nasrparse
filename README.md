@@ -55,7 +55,6 @@ the data to persist, or query it using standard database methods:
 
 ```python
 from nasrparse import NASR
-import json
 
 n = NASR("./data/CSV_DATA/20_MAR_2025_CSV")
 n.parse()
