@@ -12,7 +12,7 @@ import csv
 class AWOSs:
     __dir_path: str
 
-    awos: list[AWOS_BASE]
+    awos_base: list[AWOS_BASE]
 
     def __init__(self, dir_path: str):
         self.__dir_path = dir_path
@@ -69,7 +69,7 @@ class AWOSs:
         self.awos_base_to_db(db_cursor)
 
     def awos_base_to_dict(self) -> dict:
-        return {"awos": [item.to_dict() for item in self.awos]}
+        return {"awos_base": [item.to_dict() for item in self.awos_base]}
 
     def awos_base_to_db(self, db_cursor: Cursor) -> None:
         if len(self.awos_base) > 0:
