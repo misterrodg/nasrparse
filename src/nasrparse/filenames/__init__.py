@@ -18,6 +18,12 @@ from .atc import (
     ATC_SVC_FILE_NAME,
 )
 from .awos import AWOS_FILE_NAME
+from .awy import (
+    AWY_ALT_FILE_NAME,
+    AWY_BASE_FILE_NAME,
+    AWY_SEG_FILE_NAME,
+    AWY_SEG_ALT_FILE_NAME,
+)
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -34,4 +40,8 @@ __all__ = [
     "ATC_RMK_FILE_NAME",
     "ATC_SVC_FILE_NAME",
     "AWOS_FILE_NAME",
+    "AWY_ALT_FILE_NAME",
+    "AWY_BASE_FILE_NAME",
+    "AWY_SEG_FILE_NAME",
+    "AWY_SEG_ALT_FILE_NAME",
 ]

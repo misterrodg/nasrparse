@@ -1,4 +1,6 @@
 from .agency_type_code import AgencyTypeCode
+from .airway_designation_code import AirwayDesignationCode
+from .airway_location_code import AirwayLocationCode
 from .altitude_structure_code import AltitudeStructureCode
 from .approach_light_code import ApproachLightCode
 from .arrest_device_code import ArrestDeviceCode
@@ -25,6 +27,7 @@ from .ownership_code import OwnershipCode
 from .oxygen_code import OxygenCode
 from .part_77_code import Part77Code
 from .pavement_code import PavementCode
+from .point_code import PointCode
 from .region_code import RegionCode
 from .runway_light_code import RunwayLightCode
 from .runway_mark_code import RunwayMarkCode
@@ -44,6 +47,8 @@ from .wind_indicator_code import WindIndicatorCode
 
 __all__ = [
     "AgencyTypeCode",
+    "AirwayDesignationCode",
+    "AirwayLocationCode",
     "AltitudeStructureCode",
     "ApproachLightCode",
     "ArrestDeviceCode",
@@ -70,6 +75,7 @@ __all__ = [
     "OxygenCode",
     "Part77Code",
     "PavementCode",
+    "PointCode",
     "RegionCode",
     "RunwayLightCode",
     "RunwayMarkCode",
