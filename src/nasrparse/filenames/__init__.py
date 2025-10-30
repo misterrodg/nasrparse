@@ -11,6 +11,12 @@ from .arb import (
     ARB_BASE_FILE_NAME,
     ARB_SEG_FILE_NAME,
 )
+from .atc import (
+    ATC_ATIS_FILE_NAME,
+    ATC_BASE_FILE_NAME,
+    ATC_RMK_FILE_NAME,
+    ATC_SVC_FILE_NAME,
+)
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -22,4 +28,8 @@ __all__ = [
     "APT_RWY_END_FILE_NAME",
     "ARB_BASE_FILE_NAME",
     "ARB_SEG_FILE_NAME",
+    "ATC_ATIS_FILE_NAME",
+    "ATC_BASE_FILE_NAME",
+    "ATC_RMK_FILE_NAME",
+    "ATC_SVC_FILE_NAME",
 ]

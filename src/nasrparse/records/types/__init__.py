@@ -1,3 +1,4 @@
+from .agency_type_code import AgencyTypeCode
 from .altitude_structure_code import AltitudeStructureCode
 from .approach_light_code import ApproachLightCode
 from .arrest_device_code import ArrestDeviceCode
@@ -7,6 +8,8 @@ from .boundary_type_code import BoundaryTypeCode
 from .condition_code import ConditionCode
 from .determination_code import DeterminationCode
 from .direction_code import DirectionCode
+from .facility_operator_code import FacilityOperatorCode
+from .facility_type_code import FacilityTypeCode
 from .fuel_code import FuelCode
 from .hemis_code import HemisCode
 from .ils_code import ILSCode
@@ -40,6 +43,7 @@ from .vgsi_code import VGSICode
 from .wind_indicator_code import WindIndicatorCode
 
 __all__ = [
+    "AgencyTypeCode",
     "AltitudeStructureCode",
     "ApproachLightCode",
     "ArrestDeviceCode",
@@ -49,6 +53,8 @@ __all__ = [
     "ConditionCode",
     "DeterminationCode",
     "DirectionCode",
+    "FacilityOperatorCode",
+    "FacilityTypeCode",
     "FuelCode",
     "HemisCode",
     "ILSCode",

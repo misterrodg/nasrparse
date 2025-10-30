@@ -8,4 +8,5 @@ class SiteTypeCode(BaseEnum):
     GLIDERPORT = "G"
     HELIPORT = "H"
     ULTRALIGHT = "U"
+    VERTIPORT = "V"
     NULL = None
