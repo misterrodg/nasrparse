@@ -69,3 +69,5 @@ descriptions in the code documentation. More detail can also be found in the
 individual `[section] DATA LAYOUT.pdf` files included with the CSV files in the 
 same directory.
 
+![Code Documentation](./docs/images/code_doc.png)
+
