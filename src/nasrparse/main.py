@@ -1,4 +1,4 @@
-from nasrparse.records import Airports, ATCComms, Boundaries
+from nasrparse.records import Airports, ATCComms, AWOSs, Boundaries
 
 from sqlite3 import connect
 
@@ -11,6 +11,7 @@ class NASR:
 
     __Airports: Airports
     __ATCComms: ATCComms
+    __AWOSs: AWOSs
     __Boundaries: Boundaries
 
     def __init__(self, path: str) -> None:
@@ -22,6 +23,7 @@ class NASR:
         if self.__exists:
             self.__Airports = Airports(self.__dir_path)
             self.__ATCComms = ATCComms(self.__dir_path)
+            self.__AWOSs = AWOSs(self.__dir_path)
             self.__Boundaries = Boundaries(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
@@ -94,10 +96,19 @@ class NASR:
     def parse_atc(self) -> None:
         self.__ATCComms.parse()
 
+    def parse_awos_base(self) -> None:
+        if self.__exists:
+            self.__AWOSs.parse_awos_base()
+
+    def parse_awos(self) -> None:
+        if self.__exists:
+            self.__AWOSs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
         self.parse_atc()
+        self.parse_awos()
 
     def to_db(self, db_file_path: str) -> None:
         if os.path.exists(db_file_path):
@@ -108,6 +119,7 @@ class NASR:
 
         self.__Airports.to_db(db_cursor)
         self.__ATCComms.to_db(db_cursor)
+        self.__AWOSs.to_db(db_cursor)
         self.__Boundaries.to_db(db_cursor)
 
         connection.commit()

@@ -17,6 +17,7 @@ from .atc import (
     ATC_RMK_FILE_NAME,
     ATC_SVC_FILE_NAME,
 )
+from .awos import AWOS_FILE_NAME
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -32,4 +33,5 @@ __all__ = [
     "ATC_BASE_FILE_NAME",
     "ATC_RMK_FILE_NAME",
     "ATC_SVC_FILE_NAME",
+    "AWOS_FILE_NAME",
 ]
