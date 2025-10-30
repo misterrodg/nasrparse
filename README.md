@@ -65,8 +65,8 @@ n.to_db("NASR.db")
 
 The individual NASR objects are exposed in the package and include the FAA 
 descriptions in the code documentation. More detail can also be found in the 
-individual `[section] DATA LAYOUT.pdf` files included with the CSV files in the 
-same directory.
+individual `[section] DATA LAYOUT.pdf` (e.g. `APT DATA LAYOUT.pdf`) files 
+included with the CSV files in the same directory.
 
 ![Code Documentation](./docs/images/code_doc.png)
 
