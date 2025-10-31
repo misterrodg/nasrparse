@@ -12,6 +12,7 @@ from .records.airway import AWY_ALT, AWY_BASE, AWY_SEG, AWY_SEG_ALT
 from .records.atc_comm import ATC_ATIS, ATC_BASE, ATC_RMK, ATC_SVC
 from .records.awos import AWOS_BASE
 from .records.boundary import ARB_BASE, ARB_SEG
+from .records.coded_route import CDR_BASE
 
 __all__ = [
     "NASR",
@@ -33,4 +34,5 @@ __all__ = [
     "AWY_BASE",
     "AWY_SEG",
     "AWY_SEG_ALT",
+    "CDR_BASE",
 ]

@@ -22,6 +22,7 @@ from .location_type_code import LocationTypeCode
 from .mag_var_code import MagVarCode
 from .method_code import MethodCode
 from .nasp_code import NASPCode
+from .navigation_equipment_code import NavigationEquipmentCode
 from .obstruction_marking_code import ObstructionMarkingCode
 from .ownership_code import OwnershipCode
 from .oxygen_code import OxygenCode
@@ -70,6 +71,7 @@ __all__ = [
     "MagVarCode",
     "MethodCode",
     "NASPCode",
+    "NavigationEquipmentCode",
     "ObstructionMarkingCode",
     "OwnershipCode",
     "OxygenCode",
