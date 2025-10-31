@@ -35,4 +35,5 @@ __all__ = [
     "AWY_SEG",
     "AWY_SEG_ALT",
     "CDR_BASE",
+    "CLS_ARSP",
 ]

@@ -1,5 +1,6 @@
 from nasrparse.records import (
     Airports,
+    Airspaces,
     Airways,
     ATCComms,
     AWOSs,
@@ -17,6 +18,7 @@ class NASR:
     __dir_path: str
 
     __Airports: Airports
+    __Airspaces: Airspaces
     __Airways: Airways
     __ATCComms: ATCComms
     __AWOSs: AWOSs
@@ -31,6 +33,7 @@ class NASR:
 
         if self.__exists:
             self.__Airports = Airports(self.__dir_path)
+            self.__Airspaces = Airspaces(self.__dir_path)
             self.__Airways = Airways(self.__dir_path)
             self.__ATCComms = ATCComms(self.__dir_path)
             self.__AWOSs = AWOSs(self.__dir_path)
@@ -142,6 +145,14 @@ class NASR:
         if self.__exists:
             self.__CodedRoutes.parse()
 
+    def parse_cls_arsp(self) -> None:
+        if self.__exists:
+            self.__Airspaces.parse_cls_arsp()
+
+    def parse_cls(self) -> None:
+        if self.__exists:
+            self.__Airspaces.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -149,6 +160,7 @@ class NASR:
         self.parse_awy()
         self.parse_awos()
         self.parse_cdr()
+        self.parse_cls()
 
     def to_db(self, db_file_path: str) -> None:
         if os.path.exists(db_file_path):
@@ -158,6 +170,7 @@ class NASR:
         db_cursor = connection.cursor()
 
         self.__Airports.to_db(db_cursor)
+        self.__Airspaces.to_db(db_cursor)
         self.__Airways.to_db(db_cursor)
         self.__ATCComms.to_db(db_cursor)
         self.__AWOSs.to_db(db_cursor)
