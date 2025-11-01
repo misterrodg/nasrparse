@@ -31,14 +31,13 @@ class NASR:
 
         self.__set_path(path)
 
-        if self.__exists:
-            self.__Airports = Airports(self.__dir_path)
-            self.__Airspaces = Airspaces(self.__dir_path)
-            self.__Airways = Airways(self.__dir_path)
-            self.__ATCComms = ATCComms(self.__dir_path)
-            self.__AWOSs = AWOSs(self.__dir_path)
-            self.__Boundaries = Boundaries(self.__dir_path)
-            self.__CodedRoutes = CodedRoutes(self.__dir_path)
+        self.__Airports = Airports(self.__dir_path)
+        self.__Airspaces = Airspaces(self.__dir_path)
+        self.__Airways = Airways(self.__dir_path)
+        self.__ATCComms = ATCComms(self.__dir_path)
+        self.__AWOSs = AWOSs(self.__dir_path)
+        self.__Boundaries = Boundaries(self.__dir_path)
+        self.__CodedRoutes = CodedRoutes(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -78,7 +77,8 @@ class NASR:
             self.__Airports.parse_apt_rwy_end()
 
     def parse_apt(self) -> None:
-        self.__Airports.parse()
+        if self.__exists:
+            self.__Airports.parse()
 
     def parse_awy_alt(self) -> None:
         if self.__exists:
@@ -97,7 +97,8 @@ class NASR:
             self.__Airways.parse_awy_seg_alt()
 
     def parse_awy(self) -> None:
-        self.__Airways.parse()
+        if self.__exists:
+            self.__Airways.parse()
 
     def parse_arb_base(self) -> None:
         if self.__exists:
@@ -108,7 +109,8 @@ class NASR:
             self.__Boundaries.parse_arb_seg()
 
     def parse_arb(self) -> None:
-        self.__Boundaries.parse()
+        if self.__exists:
+            self.__Boundaries.parse()
 
     def parse_atc_atis(self) -> None:
         if self.__exists:
@@ -127,7 +129,8 @@ class NASR:
             self.__ATCComms.parse_atc_svc()
 
     def parse_atc(self) -> None:
-        self.__ATCComms.parse()
+        if self.__exists:
+            self.__ATCComms.parse()
 
     def parse_awos_base(self) -> None:
         if self.__exists:
