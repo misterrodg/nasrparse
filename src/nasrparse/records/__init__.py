@@ -5,6 +5,7 @@ from .atc_comms import ATCComms
 from .awoss import AWOSs
 from .airways import Airways
 from .coded_routes import CodedRoutes
+from .communications import Communications
 
 __all__ = [
     "Airports",
@@ -14,4 +15,5 @@ __all__ = [
     "AWOSs",
     "Airways",
     "CodedRoutes",
+    "Communications",
 ]

@@ -6,6 +6,7 @@ from nasrparse.records import (
     AWOSs,
     Boundaries,
     CodedRoutes,
+    Communications,
 )
 
 from sqlite3 import connect
@@ -24,6 +25,7 @@ class NASR:
     __AWOSs: AWOSs
     __Boundaries: Boundaries
     __CodedRoutes: CodedRoutes
+    __Communications: Communications
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -38,6 +40,7 @@ class NASR:
         self.__AWOSs = AWOSs(self.__dir_path)
         self.__Boundaries = Boundaries(self.__dir_path)
         self.__CodedRoutes = CodedRoutes(self.__dir_path)
+        self.__Communications = Communications(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -156,6 +159,14 @@ class NASR:
         if self.__exists:
             self.__Airspaces.parse()
 
+    def parse_com_base(self) -> None:
+        if self.__exists:
+            self.__Communications.parse_com_base()
+
+    def parse_com(self) -> None:
+        if self.__exists:
+            self.__Communications.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -164,6 +175,7 @@ class NASR:
         self.parse_awos()
         self.parse_cdr()
         self.parse_cls()
+        self.parse_com()
 
     def to_db(self, db_file_path: str) -> None:
         if os.path.exists(db_file_path):
@@ -179,6 +191,7 @@ class NASR:
         self.__AWOSs.to_db(db_cursor)
         self.__Boundaries.to_db(db_cursor)
         self.__CodedRoutes.to_db(db_cursor)
+        self.__Communications.to_db(db_cursor)
 
         connection.commit()
         connection.close()

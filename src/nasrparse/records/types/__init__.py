@@ -7,6 +7,8 @@ from .arrest_device_code import ArrestDeviceCode
 from .asp_code import ASPCode
 from .beacon_color_code import BeaconColorCode
 from .boundary_type_code import BoundaryTypeCode
+from .communication_outlet_type import CommunicationOutletCode
+from .communication_status_code import CommunicationStatusCode
 from .condition_code import ConditionCode
 from .determination_code import DeterminationCode
 from .direction_code import DirectionCode
@@ -56,6 +58,8 @@ __all__ = [
     "ASPCode",
     "BeaconColorCode",
     "BoundaryTypeCode",
+    "CommunicationOutletCode",
+    "CommunicationStatusCode",
     "ConditionCode",
     "DeterminationCode",
     "DirectionCode",

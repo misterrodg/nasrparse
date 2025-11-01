@@ -25,6 +25,7 @@ from .awy import (
     AWY_SEG_ALT_FILE_NAME,
 )
 from .cdr import CDR_FILE_NAME
+from .com import COM_FILE_NAME
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -46,4 +47,5 @@ __all__ = [
     "AWY_SEG_FILE_NAME",
     "AWY_SEG_ALT_FILE_NAME",
     "CDR_FILE_NAME",
+    "COM_FILE_NAME",
 ]
