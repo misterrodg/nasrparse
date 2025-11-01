@@ -1,4 +1,4 @@
-from nasrparse.records.coded_route import *
+from nasrparse.records.cdr import *
 from nasrparse.records.table_base import process_table
 from nasrparse.filenames.cdr import *
 from nasrparse.functions import check_file_exists, open_csv
@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class CodedRoutes:
+class CDRs:
     __dir_path: str
 
     cdr_base: list[CDR_BASE]

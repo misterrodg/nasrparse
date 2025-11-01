@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class Communications:
+class COMs:
     __dir_path: str
 
     com_base: list[COM_BASE]

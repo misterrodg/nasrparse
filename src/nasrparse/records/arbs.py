@@ -1,4 +1,4 @@
-from nasrparse.records.boundary import *
+from nasrparse.records.arb import *
 from nasrparse.records.table_base import process_table
 from nasrparse.filenames.arb import *
 from nasrparse.functions import check_file_exists, open_csv
@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class Boundaries:
+class ARBs:
     __dir_path: str
 
     arb_base: list[ARB_BASE]

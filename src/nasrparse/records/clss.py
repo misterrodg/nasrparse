@@ -1,4 +1,4 @@
-from nasrparse.records.airspace import *
+from nasrparse.records.cls import *
 from nasrparse.records.table_base import process_table
 from nasrparse.filenames.cls import *
 from nasrparse.functions import check_file_exists, open_csv
@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class Airspaces:
+class CLSs:
     __dir_path: str
 
     cls_arsp: list[CLS_ARSP]

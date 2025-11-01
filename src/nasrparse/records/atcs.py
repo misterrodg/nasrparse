@@ -1,4 +1,4 @@
-from nasrparse.records.atc_comm import *
+from nasrparse.records.atc import *
 from nasrparse.records.table_base import process_table
 from nasrparse.filenames.atc import *
 from nasrparse.functions import check_file_exists, open_csv
@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class ATCComms:
+class ATCs:
     __dir_path: str
 
     atc_atis: list[ATC_ATIS]

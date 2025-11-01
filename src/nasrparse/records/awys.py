@@ -1,4 +1,4 @@
-from nasrparse.records.airway import *
+from nasrparse.records.awy import *
 from nasrparse.records.table_base import process_table
 from nasrparse.filenames.awy import *
 from nasrparse.functions import check_file_exists, open_csv
@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class Airways:
+class AWYs:
     __dir_path: str
 
     awy_alt: list[AWY_ALT]

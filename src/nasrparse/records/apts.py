@@ -1,4 +1,4 @@
-from nasrparse.records.airport import *
+from nasrparse.records.apt import *
 from nasrparse.records.table_base import process_table
 from nasrparse.filenames.apt import *
 from nasrparse.functions import check_file_exists, open_csv
@@ -9,7 +9,7 @@ from sqlite3 import Cursor
 import csv
 
 
-class Airports:
+class APTs:
     __dir_path: str
 
     apt_ars: list[APT_ARS]

@@ -1,19 +1,19 @@
-from .airports import Airports
-from .airspaces import Airspaces
-from .boundaries import Boundaries
-from .atc_comms import ATCComms
+from .apts import APTs
+from .clss import CLSs
+from .arbs import ARBs
+from .atcs import ATCs
 from .awoss import AWOSs
-from .airways import Airways
-from .coded_routes import CodedRoutes
-from .communications import Communications
+from .awys import AWYs
+from .cdrs import CDRs
+from .coms import COMs
 
 __all__ = [
-    "Airports",
-    "Airspaces",
-    "Boundaries",
-    "ATCComms",
+    "APTs",
+    "CLSs",
+    "ARBs",
+    "ATCs",
     "AWOSs",
-    "Airways",
-    "CodedRoutes",
-    "Communications",
+    "AWYs",
+    "CDRs",
+    "COMs",
 ]
