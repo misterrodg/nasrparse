@@ -11,6 +11,7 @@ from nasrparse.records import (
     FIXs,
     FRQs,
     FSSs,
+    HPFs,
 )
 
 from sqlite3 import connect
@@ -35,6 +36,7 @@ class NASR:
     __FIXs: FIXs
     __FRQs: FRQs
     __FSSs: FSSs
+    __HPFs: HPFs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -54,6 +56,7 @@ class NASR:
         self.__FIXs = FIXs(self.__dir_path)
         self.__FRQs = FRQs(self.__dir_path)
         self.__FSSs = FSSs(self.__dir_path)
+        self.__HPFs = HPFs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -232,6 +235,26 @@ class NASR:
         if self.__exists:
             self.__FSSs.parse()
 
+    def parse_hpf_base(self) -> None:
+        if self.__exists:
+            self.__HPFs.parse_hpf_base()
+
+    def parse_hpf_chrt(self) -> None:
+        if self.__exists:
+            self.__HPFs.parse_hpf_chrt()
+
+    def parse_hpf_rmk(self) -> None:
+        if self.__exists:
+            self.__HPFs.parse_hpf_rmk()
+
+    def parse_hpf_spd_alt(self) -> None:
+        if self.__exists:
+            self.__HPFs.parse_hpf_spd_alt()
+
+    def parse_hpf(self) -> None:
+        if self.__exists:
+            self.__HPFs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -245,6 +268,7 @@ class NASR:
         self.parse_fix()
         self.parse_frq()
         self.parse_fss()
+        self.parse_hpf()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -263,6 +287,7 @@ class NASR:
             **self.__FIXs.to_dict(),
             **self.__FRQs.to_dict(),
             **self.__FSSs.to_dict(),
+            **self.__HPFs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -287,6 +312,7 @@ class NASR:
         self.__FIXs.to_db(db_cursor)
         self.__FRQs.to_db(db_cursor)
         self.__FSSs.to_db(db_cursor)
+        self.__HPFs.to_db(db_cursor)
 
         connection.commit()
         connection.close()

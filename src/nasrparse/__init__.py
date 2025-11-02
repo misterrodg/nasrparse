@@ -19,6 +19,7 @@ from .records.dp import DP_APT, DP_BASE, DP_RTE
 from .records.fix import FIX_BASE, FIX_CHRT, FIX_NAV
 from .records.frq import FRQ_BASE
 from .records.fss import FSS_BASE, FSS_RMK
+from .records.hpf import HPF_BASE, HPF_CHRT, HPF_RMK, HPF_SPD_ALT
 
 __all__ = [
     "NASR",
@@ -52,4 +53,8 @@ __all__ = [
     "FRQ_BASE",
     "FSS_BASE",
     "FSS_RMK",
+    "HPF_BASE",
+    "HPF_CHRT",
+    "HPF_RMK",
+    "HPF_SPD_ALT",
 ]

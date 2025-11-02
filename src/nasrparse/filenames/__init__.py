@@ -30,6 +30,12 @@ from .dp import DP_APT_FILE_NAME, DP_BASE_FILE_NAME, DP_RTE_FILE_NAME
 from .fix import FIX_BASE_FILE_NAME, FIX_CHRT_FILE_NAME, FIX_NAV_FILE_NAME
 from .frq import FRQ_BASE_FILE_NAME
 from .fss import FSS_BASE_FILE_NAME, FSS_RMK_FILE_NAME
+from .hpf import (
+    HPF_BASE_FILE_NAME,
+    HPF_CHRT_FILE_NAME,
+    HPF_RMK_FILE_NAME,
+    HPF_SPD_ALT_FILE_NAME,
+)
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -61,4 +67,8 @@ __all__ = [
     "FRQ_BASE_FILE_NAME",
     "FSS_BASE_FILE_NAME",
     "FSS_RMK_FILE_NAME",
+    "HPF_BASE_FILE_NAME",
+    "HPF_CHRT_FILE_NAME",
+    "HPF_RMK_FILE_NAME",
+    "HPF_SPD_ALT_FILE_NAME",
 ]

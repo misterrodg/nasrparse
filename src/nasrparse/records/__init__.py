@@ -10,6 +10,7 @@ from .dps import DPs
 from .fixs import FIXs
 from .frqs import FRQs
 from .fsss import FSSs
+from .hpfs import HPFs
 
 __all__ = [
     "APTs",
@@ -24,4 +25,5 @@ __all__ = [
     "FIXs",
     "FRQs",
     "FSSs",
+    "HPFs",
 ]
