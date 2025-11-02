@@ -26,7 +26,7 @@ looking like `../../../../Downloads/28DaySubscription_Effective_[date]/CSV_Data/
 
 Given the amount of data, parsing can take a moment. If dumping the data to a 
 file, that can also add time. Dumping every airport to JSON can take around 
-15 seconds, and the result file is about 330MB.
+10 seconds, and the result file is about 16MB.
 
 ### Examples
 
