@@ -21,15 +21,15 @@ class FIX_BASE(Base):
     lat_decimal: float | None
     """FIX Latitude in Decimal Format"""
     lon_deg: int | None
-    """FIX Lonitude Degrees"""
+    """FIX Longitude Degrees"""
     lon_min: int | None
-    """FIX Lonitude Minutes"""
+    """FIX Longitude Minutes"""
     lon_sec: float | None
-    """FIX Lonitude Seconds"""
+    """FIX Longitude Seconds"""
     lon_hemis: HemisCode | None
-    """FIX Lonitude Hemisphere"""
+    """FIX Longitude Hemisphere"""
     lon_decimal: float | None
-    """FIX Lonitude in Decimal Format"""
+    """FIX Longitude in Decimal Format"""
     fix_id_old: str | None
     """Previous Name(s) of the Fix before It was Renamed."""
     charting_remark: str | None

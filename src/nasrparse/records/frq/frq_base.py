@@ -19,7 +19,7 @@ class FRQ_BASE(Base):
     lat_decimal: float | None
     """Facility Reference Point Latitude in Decimal Format."""
     lon_decimal: float | None
-    """Facility Reference Point Lonitude in Decimal Format."""
+    """Facility Reference Point Longitude in Decimal Format."""
     serviced_city: str | None
     """Serviced Facility Associated City Name."""
     serviced_state: str | None
