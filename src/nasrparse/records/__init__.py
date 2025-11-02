@@ -8,6 +8,7 @@ from .cdrs import CDRs
 from .coms import COMs
 from .dps import DPs
 from .fixs import FIXs
+from .frqs import FRQs
 
 __all__ = [
     "APTs",
@@ -20,4 +21,5 @@ __all__ = [
     "COMs",
     "DPs",
     "FIXs",
+    "FRQs",
 ]

@@ -17,6 +17,7 @@ from .records.cls import CLS_ARSP
 from .records.com import COM_BASE
 from .records.dp import DP_APT, DP_BASE, DP_RTE
 from .records.fix import FIX_BASE, FIX_CHRT, FIX_NAV
+from .records.frq import FRQ_BASE
 
 __all__ = [
     "NASR",
@@ -47,4 +48,5 @@ __all__ = [
     "FIX_BASE",
     "FIX_CHRT",
     "FIX_NAV",
+    "FRQ_BASE",
 ]
