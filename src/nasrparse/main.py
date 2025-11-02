@@ -11,6 +11,7 @@ from nasrparse.records import (
 
 from sqlite3 import connect
 
+import json
 import os
 
 
@@ -176,6 +177,24 @@ class NASR:
         self.parse_cdr()
         self.parse_cls()
         self.parse_com()
+
+    def to_dict(self, json_file_path: str) -> None:
+        if os.path.exists(json_file_path):
+            os.remove(json_file_path)
+
+        result = {
+            **self.__APTs.to_dict(),
+            **self.__CLSs.to_dict(),
+            **self.__AWYs.to_dict(),
+            **self.__ATCs.to_dict(),
+            **self.__AWOSs.to_dict(),
+            **self.__ARBs.to_dict(),
+            **self.__CDRs.to_dict(),
+            **self.__COMs.to_dict(),
+        }
+
+        with open(json_file_path, "w") as jf:
+            json.dump(result, jf, indent=4)
 
     def to_db(self, db_file_path: str) -> None:
         if os.path.exists(db_file_path):
