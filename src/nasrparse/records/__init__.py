@@ -6,6 +6,7 @@ from .awoss import AWOSs
 from .awys import AWYs
 from .cdrs import CDRs
 from .coms import COMs
+from .dps import DPs
 
 __all__ = [
     "APTs",
@@ -16,4 +17,5 @@ __all__ = [
     "AWYs",
     "CDRs",
     "COMs",
+    "DPs",
 ]

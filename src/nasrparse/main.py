@@ -7,6 +7,7 @@ from nasrparse.records import (
     ARBs,
     CDRs,
     COMs,
+    DPs,
 )
 
 from sqlite3 import connect
@@ -27,6 +28,7 @@ class NASR:
     __ARBs: ARBs
     __CDRs: CDRs
     __COMs: COMs
+    __DPs: DPs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -42,6 +44,7 @@ class NASR:
         self.__ARBs = ARBs(self.__dir_path)
         self.__CDRs = CDRs(self.__dir_path)
         self.__COMs = COMs(self.__dir_path)
+        self.__DPs = DPs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -168,6 +171,22 @@ class NASR:
         if self.__exists:
             self.__COMs.parse()
 
+    def parse_dp_apt(self) -> None:
+        if self.__exists:
+            self.__DPs.parse_dp_apt()
+
+    def parse_dp_base(self) -> None:
+        if self.__exists:
+            self.__DPs.parse_dp_base()
+
+    def parse_dp_rte(self) -> None:
+        if self.__exists:
+            self.__DPs.parse_dp_rte()
+
+    def parse_dp(self) -> None:
+        if self.__exists:
+            self.__DPs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -177,6 +196,7 @@ class NASR:
         self.parse_cdr()
         self.parse_cls()
         self.parse_com()
+        self.parse_dp()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -191,6 +211,7 @@ class NASR:
             **self.__ARBs.to_dict(),
             **self.__CDRs.to_dict(),
             **self.__COMs.to_dict(),
+            **self.__DPs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -211,6 +232,7 @@ class NASR:
         self.__ARBs.to_db(db_cursor)
         self.__CDRs.to_db(db_cursor)
         self.__COMs.to_db(db_cursor)
+        self.__DPs.to_db(db_cursor)
 
         connection.commit()
         connection.close()

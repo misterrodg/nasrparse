@@ -15,6 +15,7 @@ from .records.awy import AWY_ALT, AWY_BASE, AWY_SEG, AWY_SEG_ALT
 from .records.cdr import CDR_BASE
 from .records.cls import CLS_ARSP
 from .records.coms import COM_BASE
+from .records.dp import DP_APT, DP_BASE, DP_RTE
 
 __all__ = [
     "NASR",
@@ -39,4 +40,7 @@ __all__ = [
     "CDR_BASE",
     "CLS_ARSP",
     "COM_BASE",
+    "DP_APT",
+    "DP_BASE",
+    "DP_RTE",
 ]
