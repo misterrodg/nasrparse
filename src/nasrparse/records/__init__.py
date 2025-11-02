@@ -9,6 +9,7 @@ from .coms import COMs
 from .dps import DPs
 from .fixs import FIXs
 from .frqs import FRQs
+from .fsss import FSSs
 
 __all__ = [
     "APTs",
@@ -22,4 +23,5 @@ __all__ = [
     "DPs",
     "FIXs",
     "FRQs",
+    "FSSs",
 ]

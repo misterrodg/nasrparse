@@ -14,6 +14,7 @@ from .determination_code import DeterminationCode
 from .direction_code import DirectionCode
 from .facility_operator_code import FacilityOperatorCode
 from .facility_type_code import FacilityTypeCode
+from .fss_type_code import FSSTypeCode
 from .fuel_code import FuelCode
 from .hemis_code import HemisCode
 from .ils_code import ILSCode
@@ -65,6 +66,7 @@ __all__ = [
     "DirectionCode",
     "FacilityOperatorCode",
     "FacilityTypeCode",
+    "FSSTypeCode",
     "FuelCode",
     "HemisCode",
     "ILSCode",
