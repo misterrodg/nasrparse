@@ -27,6 +27,7 @@ from .awy import (
 from .cdr import CDR_FILE_NAME
 from .com import COM_FILE_NAME
 from .dp import DP_APT_FILE_NAME, DP_BASE_FILE_NAME, DP_RTE_FILE_NAME
+from .fix import FIX_BASE_FILE_NAME, FIX_CHRT_FILE_NAME, FIX_NAV_FILE_NAME
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -52,4 +53,7 @@ __all__ = [
     "DP_APT_FILE_NAME",
     "DP_BASE_FILE_NAME",
     "DP_RTE_FILE_NAME",
+    "FIX_BASE_FILE_NAME",
+    "FIX_CHRT_FILE_NAME",
+    "FIX_NAV_FILE_NAME",
 ]

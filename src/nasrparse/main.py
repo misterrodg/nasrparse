@@ -1,14 +1,4 @@
-from nasrparse.records import (
-    APTs,
-    CLSs,
-    AWYs,
-    ATCs,
-    AWOSs,
-    ARBs,
-    CDRs,
-    COMs,
-    DPs,
-)
+from nasrparse.records import APTs, CLSs, AWYs, ATCs, AWOSs, ARBs, CDRs, COMs, DPs, FIXs
 
 from sqlite3 import connect
 
@@ -29,6 +19,7 @@ class NASR:
     __CDRs: CDRs
     __COMs: COMs
     __DPs: DPs
+    __FIXs: FIXs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -45,6 +36,7 @@ class NASR:
         self.__CDRs = CDRs(self.__dir_path)
         self.__COMs = COMs(self.__dir_path)
         self.__DPs = DPs(self.__dir_path)
+        self.__FIXs = FIXs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -187,6 +179,22 @@ class NASR:
         if self.__exists:
             self.__DPs.parse()
 
+    def parse_fix_base(self) -> None:
+        if self.__exists:
+            self.__FIXs.parse_fix_base()
+
+    def parse_fix_chrt(self) -> None:
+        if self.__exists:
+            self.__FIXs.parse_fix_chrt()
+
+    def parse_fix_nav(self) -> None:
+        if self.__exists:
+            self.__FIXs.parse_fix_nav()
+
+    def parse_fix(self) -> None:
+        if self.__exists:
+            self.__FIXs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -197,6 +205,7 @@ class NASR:
         self.parse_cls()
         self.parse_com()
         self.parse_dp()
+        self.parse_fix()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -212,6 +221,7 @@ class NASR:
             **self.__CDRs.to_dict(),
             **self.__COMs.to_dict(),
             **self.__DPs.to_dict(),
+            **self.__FIXs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -233,6 +243,7 @@ class NASR:
         self.__CDRs.to_db(db_cursor)
         self.__COMs.to_db(db_cursor)
         self.__DPs.to_db(db_cursor)
+        self.__FIXs.to_db(db_cursor)
 
         connection.commit()
         connection.close()

@@ -7,6 +7,7 @@ from .awys import AWYs
 from .cdrs import CDRs
 from .coms import COMs
 from .dps import DPs
+from .fixs import FIXs
 
 __all__ = [
     "APTs",
@@ -18,4 +19,5 @@ __all__ = [
     "CDRs",
     "COMs",
     "DPs",
+    "FIXs",
 ]
