@@ -14,7 +14,7 @@ from .records.awos import AWOS_BASE
 from .records.awy import AWY_ALT, AWY_BASE, AWY_SEG, AWY_SEG_ALT
 from .records.cdr import CDR_BASE
 from .records.cls import CLS_ARSP
-from .records.coms import COM_BASE
+from .records.com import COM_BASE
 from .records.dp import DP_APT, DP_BASE, DP_RTE
 
 __all__ = [
