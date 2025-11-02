@@ -664,12 +664,20 @@ class APT_BASE(Base):
             "alt_toll_free_no": self.alt_toll_free_no,
             "notam_id": self.notam_id,
             "notam_flag": self.notam_flag,
-            "activation_date": self.activation_date,
-            "arpt_status": self.arpt_status.value,
+            "activation_date": (
+                self.activation_date.strftime("%Y-%m-%d")
+                if self.activation_date
+                else None
+            ),
+            "arpt_status": self.arpt_status.value if self.arpt_status else None,
             "far_139_type_code": self.far_139_type_code,
             "far_139_carrier_ser_code": self.far_139_carrier_ser_code,
-            "arff_cert_type_date": self.arff_cert_type_date,
-            "nasp_code": self.nasp_code.value,
+            "arff_cert_type_date": (
+                self.arff_cert_type_date.strftime("%Y-%m-%d")
+                if self.arff_cert_type_date
+                else None
+            ),
+            "nasp_code": self.nasp_code.value if self.nasp_code else None,
             "asp_anlys_dtrm_code": (
                 self.asp_anlys_dtrm_code.value if self.asp_anlys_dtrm_code else None
             ),
@@ -683,8 +691,16 @@ class APT_BASE(Base):
             "inspector_code": (
                 self.inspector_code.value if self.inspector_code else None
             ),
-            "last_inspection": self.last_inspection,
-            "last_info_response": self.last_info_response,
+            "last_inspection": (
+                self.last_inspection.strftime("%Y-%m-%d")
+                if self.last_inspection
+                else None
+            ),
+            "last_info_response": (
+                self.last_info_response.strftime("%Y-%m-%d")
+                if self.last_info_response
+                else None
+            ),
             "fuel_types": (
                 ", ".join(member.value for member in self.fuel_types)
                 if self.fuel_types
@@ -714,9 +730,17 @@ class APT_BASE(Base):
             "lndg_fee_flag": self.lndg_fee_flag,
             "medical_use_flag": self.medical_use_flag,
             "arpt_psn_source": self.arpt_psn_source,
-            "position_src_date": self.position_src_date,
+            "position_src_date": (
+                self.position_src_date.strftime("%Y-%m-%d")
+                if self.position_src_date
+                else None
+            ),
             "arpt_elev_source": self.arpt_elev_source,
-            "elevation_src_date": self.elevation_src_date,
+            "elevation_src_date": (
+                self.elevation_src_date.strftime("%Y-%m-%d")
+                if self.elevation_src_date
+                else None
+            ),
             "contr_fuel_avbl": self.contr_fuel_avbl,
             "trns_strg_buoy_flag": self.trns_strg_buoy_flag,
             "trns_strg_hgr_flag": self.trns_strg_hgr_flag,
