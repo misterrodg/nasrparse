@@ -50,6 +50,7 @@ from .maa import (
     MAA_RMK_FILE_NAME,
     MAA_SHP_FILE_NAME,
 )
+from .mil import MIL_FILE_NAME
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -95,4 +96,5 @@ __all__ = [
     "MAA_CON_FILE_NAME",
     "MAA_RMK_FILE_NAME",
     "MAA_SHP_FILE_NAME",
+    "MIL_FILE_NAME",
 ]

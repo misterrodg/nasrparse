@@ -23,6 +23,7 @@ from .records.hpf import HPF_BASE, HPF_CHRT, HPF_RMK, HPF_SPD_ALT
 from .records.ils import ILS_BASE, ILS_DME, ILS_GS, ILS_MKR, ILS_RMK
 from .records.lid import LID_BASE
 from .records.maa import MAA_BASE, MAA_CON, MAA_RMK, MAA_SHP
+from .records.mil import MIL_BASE
 
 __all__ = [
     "NASR",
@@ -70,4 +71,5 @@ __all__ = [
     "MAA_CON",
     "MAA_RMK",
     "MAA_SHP",
+    "MIL_BASE",
 ]

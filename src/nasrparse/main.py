@@ -15,6 +15,7 @@ from nasrparse.records import (
     ILSs,
     LIDs,
     MAAs,
+    MILs,
 )
 
 from sqlite3 import connect
@@ -43,6 +44,7 @@ class NASR:
     __ILSs: ILSs
     __LIDs: LIDs
     __MAAs: MAAs
+    __MILs: MILs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -66,6 +68,7 @@ class NASR:
         self.__ILSs = ILSs(self.__dir_path)
         self.__LIDs = LIDs(self.__dir_path)
         self.__MAAs = MAAs(self.__dir_path)
+        self.__MILs = MILs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -316,6 +319,14 @@ class NASR:
         if self.__exists:
             self.__MAAs.parse()
 
+    def parse_mil_base(self) -> None:
+        if self.__exists:
+            self.__MILs.parse_mil_base()
+
+    def parse_mil(self) -> None:
+        if self.__exists:
+            self.__MILs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -333,6 +344,7 @@ class NASR:
         self.parse_ils()
         self.parse_lid()
         self.parse_maa()
+        self.parse_mil()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -355,6 +367,7 @@ class NASR:
             **self.__ILSs.to_dict(),
             **self.__LIDs.to_dict(),
             **self.__MAAs.to_dict(),
+            **self.__MILs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -383,6 +396,7 @@ class NASR:
         self.__ILSs.to_db(db_cursor)
         self.__LIDs.to_db(db_cursor)
         self.__MAAs.to_db(db_cursor)
+        self.__MILs.to_db(db_cursor)
 
         connection.commit()
         connection.close()
