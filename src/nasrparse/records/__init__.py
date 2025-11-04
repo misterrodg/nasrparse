@@ -12,6 +12,7 @@ from .frqs import FRQs
 from .fsss import FSSs
 from .hpfs import HPFs
 from .ilss import ILSs
+from .lids import LIDs
 
 __all__ = [
     "APTs",
@@ -28,4 +29,5 @@ __all__ = [
     "FSSs",
     "HPFs",
     "ILSs",
+    "LIDs",
 ]
