@@ -27,6 +27,7 @@ from .inspector_code import InspectorCode
 from .lid_group_code import LIDGroupCode
 from .light_schedule_code import LightScheduleCode
 from .location_type_code import LocationTypeCode
+from .maa_type_code import MAATypeCode
 from .mag_var_code import MagVarCode
 from .marker_type_code import MarkerTypeCode
 from .method_code import MethodCode
@@ -90,6 +91,7 @@ __all__ = [
     "LIDGroupCode",
     "LightScheduleCode",
     "LocationTypeCode",
+    "MAATypeCode",
     "MagVarCode",
     "MarkerTypeCode",
     "MethodCode",

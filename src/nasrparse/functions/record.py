@@ -1,5 +1,7 @@
 from datetime import datetime, date
 
+import re
+
 
 def to_nullable_bool(string: str) -> bool | None:
     string = string.strip()
@@ -64,3 +66,39 @@ def to_nullable_string(string: str) -> str | None:
     if string == "":
         return None
     return string
+
+
+MIN_IN_DEG = 60
+SEC_IN_MIN = 60
+
+
+def __min_to_deg(min_val: int) -> float:
+    return min_val / MIN_IN_DEG
+
+
+def __sec_to_deg(sec_val: float) -> float:
+    return sec_val / SEC_IN_MIN / MIN_IN_DEG
+
+
+def to_nullable_position(string: str) -> float | None:
+    string = string.strip()
+    if string == "":
+        return None
+
+    pattern = r"(\d{1,3})-(\d{1,2})-([\d.]+)([NSEWnsew])"
+    match = re.match(pattern, string)
+    deg_s = match.group(1)
+    deg = to_nullable_int(deg_s)
+    min_s = match.group(2)
+    min = to_nullable_int(min_s)
+    sec_s = match.group(3)
+    sec = to_nullable_float(sec_s)
+    hem_s = match.group(4)
+
+    if None in (deg, min, sec):
+        return None
+
+    result = deg + __min_to_deg(min) + __sec_to_deg(sec)
+    if hem_s in ["W", "S"]:
+        result = -result
+    return result

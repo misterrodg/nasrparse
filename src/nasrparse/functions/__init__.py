@@ -6,6 +6,7 @@ from .record import (
     to_nullable_float,
     to_nullable_int,
     to_nullable_string,
+    to_nullable_position,
 )
 from .sql import translate_sql_types
 
