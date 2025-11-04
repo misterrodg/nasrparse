@@ -12,6 +12,7 @@ from nasrparse.records import (
     FRQs,
     FSSs,
     HPFs,
+    ILSs,
 )
 
 from sqlite3 import connect
@@ -37,6 +38,7 @@ class NASR:
     __FRQs: FRQs
     __FSSs: FSSs
     __HPFs: HPFs
+    __ILSs: ILSs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -57,6 +59,7 @@ class NASR:
         self.__FRQs = FRQs(self.__dir_path)
         self.__FSSs = FSSs(self.__dir_path)
         self.__HPFs = HPFs(self.__dir_path)
+        self.__ILSs = ILSs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -255,6 +258,30 @@ class NASR:
         if self.__exists:
             self.__HPFs.parse()
 
+    def parse_ils_base(self) -> None:
+        if self.__exists:
+            self.__ILSs.parse_ils_base()
+
+    def parse_ils_dme(self) -> None:
+        if self.__exists:
+            self.__ILSs.parse_ils_dme()
+
+    def parse_ils_gs(self) -> None:
+        if self.__exists:
+            self.__ILSs.parse_ils_gs()
+
+    def parse_ils_mkr(self) -> None:
+        if self.__exists:
+            self.__ILSs.parse_ils_mkr()
+
+    def parse_ils_rmk(self) -> None:
+        if self.__exists:
+            self.__ILSs.parse_ils_rmk()
+
+    def parse_ils(self) -> None:
+        if self.__exists:
+            self.__ILSs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -269,6 +296,7 @@ class NASR:
         self.parse_frq()
         self.parse_fss()
         self.parse_hpf()
+        self.parse_ils()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -288,6 +316,7 @@ class NASR:
             **self.__FRQs.to_dict(),
             **self.__FSSs.to_dict(),
             **self.__HPFs.to_dict(),
+            **self.__ILSs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -313,6 +342,7 @@ class NASR:
         self.__FRQs.to_db(db_cursor)
         self.__FSSs.to_db(db_cursor)
         self.__HPFs.to_db(db_cursor)
+        self.__ILSs.to_db(db_cursor)
 
         connection.commit()
         connection.close()

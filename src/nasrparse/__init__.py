@@ -20,6 +20,7 @@ from .records.fix import FIX_BASE, FIX_CHRT, FIX_NAV
 from .records.frq import FRQ_BASE
 from .records.fss import FSS_BASE, FSS_RMK
 from .records.hpf import HPF_BASE, HPF_CHRT, HPF_RMK, HPF_SPD_ALT
+from .records.ils import ILS_BASE, ILS_DME, ILS_GS, ILS_MKR, ILS_RMK
 
 __all__ = [
     "NASR",
@@ -57,4 +58,9 @@ __all__ = [
     "HPF_CHRT",
     "HPF_RMK",
     "HPF_SPD_ALT",
+    "ILS_BASE",
+    "ILS_DME",
+    "ILS_GS",
+    "ILS_MKR",
+    "ILS_RMK",
 ]
