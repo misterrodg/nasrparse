@@ -41,11 +41,11 @@ class Base(TableBase):
     def __repr__(self) -> str:
         return (
             f"EFF_DATE={self.eff_date!r}, "
-            f"{self.country_code!r}, "
-            f"{self.loc_id!r}, "
-            f"{self.region_code!r}, "
-            f"{self.state_code!r}, "
-            f"{self.city!r}, "
+            f"COUNTRY_CODE={self.country_code!r}, "
+            f"LOC_ID={self.loc_id!r}, "
+            f"REGION_CODE={self.region_code!r}, "
+            f"STATE_CODE={self.state_code!r}, "
+            f"CITY={self.city!r}, "
         )
 
     def ordered_fields(self) -> list:
