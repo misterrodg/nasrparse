@@ -32,6 +32,7 @@ from .maa_type_code import MAATypeCode
 from .mag_var_code import MagVarCode
 from .marker_type_code import MarkerTypeCode
 from .method_code import MethodCode
+from .mil_route_type_code import MilRouteTypeCode
 from .monitoring_code import MonitoringCode
 from .mtr_agency_type_code import MTRAgencyTypeCode
 from .nasp_code import NASPCode
@@ -43,8 +44,8 @@ from .part_77_code import Part77Code
 from .pavement_code import PavementCode
 from .point_code import PointCode
 from .position_source_code import PositionSourceCode
+from .pref_route_type_code import PrefRouteTypeCode
 from .region_code import RegionCode
-from .route_type_code import RouteTypeCode
 from .runway_light_code import RunwayLightCode
 from .runway_mark_code import RunwayMarkCode
 from .runway_mark_cond_code import RunwayMarkCondCode
@@ -113,8 +114,9 @@ __all__ = [
     "PavementCode",
     "PointCode",
     "PositionSourceCode",
+    "PrefRouteTypeCode",
     "RegionCode",
-    "RouteTypeCode",
+    "MilRouteTypeCode",
     "RunwayLightCode",
     "RunwayMarkCode",
     "RunwayMarkCondCode",

@@ -60,6 +60,7 @@ from .mtr import (
     MTR_WDTH_FILE_NAME,
 )
 from .nav import NAV_BASE_FILE_NAME, NAV_CKPT_FILE_NAME, NAV_RMK_FILE_NAME
+from .pfr import PFR_BASE_FILE_NAME, PFR_RMT_FMT_FILE_NAME, PFR_SEG_FILE_NAME
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -115,4 +116,7 @@ __all__ = [
     "NAV_BASE_FILE_NAME",
     "NAV_CKPT_FILE_NAME",
     "NAV_RMK_FILE_NAME",
+    "PFR_BASE_FILE_NAME",
+    "PFR_RMT_FMT_FILE_NAME",
+    "PFR_SEG_FILE_NAME",
 ]

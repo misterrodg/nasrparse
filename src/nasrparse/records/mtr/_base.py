@@ -1,5 +1,5 @@
 from nasrparse.functions import to_nullable_date, to_nullable_int, to_nullable_string
-from nasrparse.records.types import RouteTypeCode
+from nasrparse.records.types import MilRouteTypeCode
 
 from nasrparse.records.table_base import TableBase
 
@@ -9,7 +9,7 @@ from datetime import date
 class Base(TableBase):
     eff_date: date | None
     """The 28 Day NASR Subscription Effective Date in format 'YYYY/MM/DD'."""
-    route_type_code: RouteTypeCode
+    route_type_code: MilRouteTypeCode
     """MTR Type Code."""
     route_id: str | None
     """Route Identifier. Along with the ROUTE_TYPE_CODE creates a unique MTR identifier."""
@@ -26,7 +26,7 @@ class Base(TableBase):
     ) -> None:
         super().__init__(table_name)
         self.eff_date = to_nullable_date(eff_date, "YYYY/MM/DD")
-        self.route_type_code = RouteTypeCode.from_value(
+        self.route_type_code = MilRouteTypeCode.from_value(
             to_nullable_string(route_type_code)
         )
         self.route_id = to_nullable_string(route_id)

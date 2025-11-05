@@ -26,6 +26,7 @@ from .records.maa import MAA_BASE, MAA_CON, MAA_RMK, MAA_SHP
 from .records.mil import MIL_BASE
 from .records.mtr import MTR_AGY, MTR_BASE, MTR_PT, MTR_SOP, MTR_TERR, MTR_WDTH
 from .records.nav import NAV_BASE, NAV_CKPT, NAV_RMK
+from .records.pfr import PFR_BASE, PFR_RMT_FMT, PFR_SEG
 
 __all__ = [
     "NASR",
@@ -83,4 +84,7 @@ __all__ = [
     "NAV_BASE",
     "NAV_CKPT",
     "NAV_RMK",
+    "PFR_BASE",
+    "PFR_RMT_FMT",
+    "PFR_SEG",
 ]
