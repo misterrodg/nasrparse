@@ -16,6 +16,7 @@ from nasrparse.records import (
     LIDs,
     MAAs,
     MILs,
+    MTRs,
 )
 
 from sqlite3 import connect
@@ -45,6 +46,7 @@ class NASR:
     __LIDs: LIDs
     __MAAs: MAAs
     __MILs: MILs
+    __MTRs: MTRs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -69,6 +71,7 @@ class NASR:
         self.__LIDs = LIDs(self.__dir_path)
         self.__MAAs = MAAs(self.__dir_path)
         self.__MILs = MILs(self.__dir_path)
+        self.__MTRs = MTRs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -327,6 +330,34 @@ class NASR:
         if self.__exists:
             self.__MILs.parse()
 
+    def parse_mtr_agy(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse_mtr_agy()
+
+    def parse_mtr_base(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse_mtr_base()
+
+    def parse_mtr_pt(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse_mtr_pt()
+
+    def parse_mtr_sop(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse_mtr_sop()
+
+    def parse_mtr_terr(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse_mtr_terr()
+
+    def parse_mtr_wdth(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse_mtr_wdth()
+
+    def parse_mtr(self) -> None:
+        if self.__exists:
+            self.__MTRs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -345,6 +376,7 @@ class NASR:
         self.parse_lid()
         self.parse_maa()
         self.parse_mil()
+        self.parse_mtr()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -368,6 +400,7 @@ class NASR:
             **self.__LIDs.to_dict(),
             **self.__MAAs.to_dict(),
             **self.__MILs.to_dict(),
+            **self.__MTRs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -397,6 +430,7 @@ class NASR:
         self.__LIDs.to_db(db_cursor)
         self.__MAAs.to_db(db_cursor)
         self.__MILs.to_db(db_cursor)
+        self.__MTRs.to_db(db_cursor)
 
         connection.commit()
         connection.close()
