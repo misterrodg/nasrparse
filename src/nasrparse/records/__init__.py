@@ -18,6 +18,7 @@ from .mils import MILs
 from .mtrs import MTRs
 from .navs import NAVs
 from .pfrs import PFRs
+from .pjas import PJAs
 
 __all__ = [
     "APTs",
@@ -40,4 +41,5 @@ __all__ = [
     "MTRs",
     "NAVs",
     "PFRs",
+    "PJAs",
 ]

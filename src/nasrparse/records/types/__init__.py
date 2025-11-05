@@ -3,6 +3,7 @@ from .air_ground_code import AirGroundCode
 from .airway_designation_code import AirwayDesignationCode
 from .airway_location_code import AirwayLocationCode
 from .altitude_structure_code import AltitudeStructureCode
+from .altitude_type_code import AltitudeTypeCode
 from .approach_light_code import ApproachLightCode
 from .arrest_device_code import ArrestDeviceCode
 from .asp_code import ASPCode
@@ -74,6 +75,7 @@ __all__ = [
     "AirwayDesignationCode",
     "AirwayLocationCode",
     "AltitudeStructureCode",
+    "AltitudeTypeCode",
     "ApproachLightCode",
     "ArrestDeviceCode",
     "ASPCode",
