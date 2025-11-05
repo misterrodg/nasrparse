@@ -1,4 +1,4 @@
-from nasrparse.functions import to_nullable_date, to_nullable_int, to_nullable_string
+from nasrparse.functions import to_nullable_date, to_nullable_string
 from nasrparse.records.types import SiteTypeCode, SystemTypeCode
 
 from nasrparse.records.table_base import TableBase

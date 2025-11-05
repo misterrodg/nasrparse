@@ -76,7 +76,7 @@ class ARB_BASE(Base):
         self.lat_min = to_nullable_int(lat_min)
         self.lat_sec = to_nullable_float(lat_sec)
         self.lat_hemis = HemisCode.from_value(to_nullable_string(lat_hemis))
-        self.lat_decimal = to_nullable_string(lat_decimal)
+        self.lat_decimal = to_nullable_float(lat_decimal)
         self.lon_deg = to_nullable_int(lon_deg)
         self.lon_min = to_nullable_int(lon_min)
         self.lon_sec = to_nullable_float(lon_sec)

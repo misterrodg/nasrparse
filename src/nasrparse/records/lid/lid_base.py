@@ -103,8 +103,11 @@ class LID_BASE(Base):
         }
         return {**base_dict, **this_dict}
 
-    def __find_matching_enum(self, str_value: str) -> Enum:
-        possible_enums: list[BaseEnum] = [
+    def __find_matching_enum(self, str_value: str | None) -> Enum:
+        if str_value is None:
+            return WeatherSensorCode.NULL  # Generic "NULL" from smallest Enum
+
+        possible_enums: list[type[BaseEnum]] = [
             CommunicationOutletCode,
             ControlFacilityCode,
             FSSTypeCode,

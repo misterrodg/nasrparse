@@ -1,4 +1,5 @@
 from nasrparse.functions import (
+    to_nullable_bool,
     to_nullable_date,
     to_nullable_float,
     to_nullable_int,
@@ -104,7 +105,7 @@ class FSS_BASE(Base):
         self.opr_hours = to_nullable_string(opr_hours)
         self.fac_status = to_nullable_string(fac_status)
         self.alternate_fss = to_nullable_string(alternate_fss)
-        self.wea_radar_flag = to_nullable_string(wea_radar_flag)
+        self.wea_radar_flag = to_nullable_bool(wea_radar_flag)
         self.phone_no = to_nullable_string(phone_no)
         self.toll_free_no = to_nullable_string(toll_free_no)
 

@@ -87,6 +87,9 @@ def to_nullable_position(string: str) -> float | None:
 
     pattern = r"(\d{1,3})-(\d{1,2})-([\d.]+)([NSEWnsew])"
     match = re.match(pattern, string)
+    if match is None:
+        return None
+
     deg_s = match.group(1)
     deg = to_nullable_int(deg_s)
     min_s = match.group(2)
@@ -95,7 +98,7 @@ def to_nullable_position(string: str) -> float | None:
     sec = to_nullable_float(sec_s)
     hem_s = match.group(4)
 
-    if None in (deg, min, sec):
+    if deg is None or min is None or sec is None:
         return None
 
     result = deg + __min_to_deg(min) + __sec_to_deg(sec)

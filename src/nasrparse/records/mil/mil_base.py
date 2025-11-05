@@ -1,4 +1,4 @@
-from nasrparse.functions import to_nullable_date, to_nullable_string
+from nasrparse.functions import to_nullable_string
 from nasrparse.records.types import FacilityOperatorCode
 
 from ._base import Base

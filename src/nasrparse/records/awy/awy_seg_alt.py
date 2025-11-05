@@ -30,17 +30,17 @@ class AWY_SEG_ALT(Base):
     """Country Post Office Code"""
     to_point: str | None
     """The To Point that directly follows the current From Point on an individual segment."""
-    mag_course: int | None
+    mag_course: float | None
     """Segment Magnetic Course"""
-    opp_mag_course: int | None
+    opp_mag_course: float | None
     """Segment Magnetic Course - Opposite Direction"""
-    mag_course_dist: int | None
+    mag_course_dist: float | None
     """Distance to Next Point in Segment in Nautical Miles."""
     chgovr_pt: str | None
     """NAVAID Changeover Point Facility Identifier"""
     chgovr_pt_name: str | None
     """NAVAID Changeover Point Facility Name"""
-    chgovr_pt_dist: int | None
+    chgovr_pt_dist: float | None
     """This Field Contains The Distance In Nautical Miles Of The Changeover Point Between This NAVAID Facility And The Next NAVAID Facility When The Changeover Point Is More Than One Mile From Half-Way Point."""
     awy_seg_gap_flag: bool | None
     """Airway Gap Flag Indicator for when Airway Discontinued - Y/N."""

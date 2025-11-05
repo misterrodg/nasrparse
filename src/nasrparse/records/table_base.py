@@ -1,6 +1,7 @@
 from nasrparse.functions.sql import translate_sql_types
 
 from abc import abstractmethod
+from typing import Sequence
 from sqlite3 import Cursor
 from typing import get_type_hints
 
@@ -51,7 +52,7 @@ class TableBase:
         )
 
 
-def process_table(db_cursor: Cursor, record_list: list[TableBase]) -> None:
+def process_table(db_cursor: Cursor, record_list: Sequence[TableBase]) -> None:
     first = record_list[0]
     drop_statement = first.to_drop_statement()
     db_cursor.execute(drop_statement)

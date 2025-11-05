@@ -19,4 +19,5 @@ __all__ = [
     "to_nullable_int",
     "to_nullable_string",
     "translate_sql_types",
+    "to_nullable_position",
 ]

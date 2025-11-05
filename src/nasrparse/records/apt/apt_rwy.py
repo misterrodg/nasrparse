@@ -182,7 +182,11 @@ class APT_RWY(Base):
             "rwy_len": self.rwy_len,
             "rwy_width": self.rwy_width,
             "surface_type_code": (
-                ", ".join(member.value for member in self.surface_type_code)
+                ", ".join(
+                    member.value
+                    for member in self.surface_type_code
+                    if member.value is not None
+                )
                 if self.surface_type_code
                 else None
             ),

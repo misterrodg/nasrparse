@@ -403,7 +403,7 @@ class APT_RWY_END(Base):
             f"OBSTN_MRKD_CODE={self.obstn_mrkd_code.value!r} ,"
             f"FAR_PART_77_CODE={self.far_part_77_code.value!r} ,"
             f"OBSTN_CLNC_SLOPE={self.obstn_clnc_slope!r} ,"
-            f"OBSTN_HGT={self.obstn_hgtt!r} ,"
+            f"OBSTN_HGT={self.obstn_hgt!r} ,"
             f"DIST_FROM_THR={self.dist_from_thr!r} ,"
             f"CNTRLN_OFFSET={self.cntrln_offset!r} ,"
             f"CNTRLN_DIR_CODE={self.cntrln_dir_code!r} ,"

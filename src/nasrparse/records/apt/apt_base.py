@@ -702,7 +702,11 @@ class APT_BASE(Base):
                 else None
             ),
             "fuel_types": (
-                ", ".join(member.value for member in self.fuel_types)
+                ", ".join(
+                    member.value
+                    for member in self.fuel_types
+                    if member.value is not None
+                )
                 if self.fuel_types
                 else None
             ),
@@ -746,7 +750,11 @@ class APT_BASE(Base):
             "trns_strg_hgr_flag": self.trns_strg_hgr_flag,
             "trns_strg_tie_flag": self.trns_strg_tie_flag,
             "other_services": (
-                ", ".join(member.value for member in self.other_services)
+                ", ".join(
+                    member.value
+                    for member in self.other_services
+                    if member.value is not None
+                )
                 if self.other_services
                 else None
             ),
