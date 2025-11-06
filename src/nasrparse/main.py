@@ -20,6 +20,7 @@ from nasrparse.records import (
     NAVs,
     PFRs,
     PJAs,
+    RDRs,
 )
 
 from sqlite3 import connect
@@ -53,6 +54,7 @@ class NASR:
     __NAVs: NAVs
     __PFRs: PFRs
     __PJAs: PJAs
+    __RDRs: RDRs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -81,6 +83,7 @@ class NASR:
         self.__NAVs = NAVs(self.__dir_path)
         self.__PFRs = PFRs(self.__dir_path)
         self.__PJAs = PJAs(self.__dir_path)
+        self.__RDRs = RDRs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -411,6 +414,14 @@ class NASR:
         if self.__exists:
             self.__PJAs.parse()
 
+    def parse_rdr_base(self) -> None:
+        if self.__exists:
+            self.__RDRs.parse_rdr_base()
+
+    def parse_rdr(self) -> None:
+        if self.__exists:
+            self.__RDRs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -433,6 +444,7 @@ class NASR:
         self.parse_nav()
         self.parse_pfr()
         self.parse_pja()
+        self.parse_rdr()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -460,6 +472,7 @@ class NASR:
             **self.__NAVs.to_dict(),
             **self.__PFRs.to_dict(),
             **self.__PJAs.to_dict(),
+            **self.__RDRs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -493,6 +506,7 @@ class NASR:
         self.__NAVs.to_db(db_cursor)
         self.__PFRs.to_db(db_cursor)
         self.__PJAs.to_db(db_cursor)
+        self.__RDRs.to_db(db_cursor)
 
         connection.commit()
         connection.close()

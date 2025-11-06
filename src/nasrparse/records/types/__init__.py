@@ -46,6 +46,8 @@ from .pavement_code import PavementCode
 from .point_code import PointCode
 from .position_source_code import PositionSourceCode
 from .pref_route_type_code import PrefRouteTypeCode
+from .radar_facility_type_code import RadarFacilityTypeCode
+from .radar_type_code import RadarTypeCode
 from .region_code import RegionCode
 from .runway_light_code import RunwayLightCode
 from .runway_mark_code import RunwayMarkCode
@@ -117,6 +119,8 @@ __all__ = [
     "PointCode",
     "PositionSourceCode",
     "PrefRouteTypeCode",
+    "RadarFacilityTypeCode",
+    "RadarTypeCode",
     "RegionCode",
     "MilRouteTypeCode",
     "RunwayLightCode",
