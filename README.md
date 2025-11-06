@@ -9,6 +9,14 @@ can then be used as a database for flight planning tools.
 If you are interested in seeing the differences between each data cycle, have 
 a look at [NASRDiff](https://github.com/misterrodg/NASRDiff).
 
+## Versions
+
+| Version | Description                                                         | Release Date |
+| ------- | ------------------------------------------------------------------- | ------------ |
+| 1.0.0   | Initial public release.                                             | 2025-11-06   |
+
+A changelog is available in the [CHANGELOG.md](./CHANGELOG.md) with additional detail and guidance.
+
 ## Installation
 
 Install using `pip`:
