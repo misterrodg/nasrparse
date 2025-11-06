@@ -20,6 +20,7 @@ from .navs import NAVs
 from .pfrs import PFRs
 from .pjas import PJAs
 from .rdrs import RDRs
+from .stars import STARs
 
 __all__ = [
     "APTs",
@@ -44,4 +45,5 @@ __all__ = [
     "PFRs",
     "PJAs",
     "RDRs",
+    "STARs",
 ]

@@ -29,6 +29,7 @@ from .records.nav import NAV_BASE, NAV_CKPT, NAV_RMK
 from .records.pfr import PFR_BASE, PFR_RMT_FMT, PFR_SEG
 from .records.pja import PJA_BASE, PJA_CON
 from .records.rdr import RDR_BASE
+from .records.star import STAR_APT, STAR_BASE, STAR_RTE
 
 __all__ = [
     "NASR",
@@ -92,4 +93,7 @@ __all__ = [
     "PJA_BASE",
     "PJA_CON",
     "RDR_BASE",
+    "STAR_APT",
+    "STAR_BASE",
+    "STAR_RTE",
 ]
