@@ -21,6 +21,7 @@ from .pfrs import PFRs
 from .pjas import PJAs
 from .rdrs import RDRs
 from .stars import STARs
+from .wxls import WXLs
 
 __all__ = [
     "APTs",
@@ -46,4 +47,5 @@ __all__ = [
     "PJAs",
     "RDRs",
     "STARs",
+    "WXLs",
 ]

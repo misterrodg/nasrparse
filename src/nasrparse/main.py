@@ -22,6 +22,7 @@ from nasrparse.records import (
     PJAs,
     RDRs,
     STARs,
+    WXLs,
 )
 
 from sqlite3 import connect
@@ -57,6 +58,7 @@ class NASR:
     __PJAs: PJAs
     __RDRs: RDRs
     __STARs: STARs
+    __WXLs: WXLs
 
     def __init__(self, path: str) -> None:
         self.__exists = False
@@ -87,6 +89,7 @@ class NASR:
         self.__PJAs = PJAs(self.__dir_path)
         self.__RDRs = RDRs(self.__dir_path)
         self.__STARs = STARs(self.__dir_path)
+        self.__WXLs = WXLs(self.__dir_path)
 
     def __set_path(self, path: str) -> None:
         self.__dir_path = path
@@ -441,6 +444,18 @@ class NASR:
         if self.__exists:
             self.__STARs.parse()
 
+    def parse_wxl_base(self) -> None:
+        if self.__exists:
+            self.__WXLs.parse_wxl_base()
+
+    def parse_wxl_svc(self) -> None:
+        if self.__exists:
+            self.__WXLs.parse_wxl_svc()
+
+    def parse_wxl(self) -> None:
+        if self.__exists:
+            self.__WXLs.parse()
+
     def parse(self) -> None:
         self.parse_apt()
         self.parse_arb()
@@ -465,6 +480,7 @@ class NASR:
         self.parse_pja()
         self.parse_rdr()
         self.parse_star()
+        self.parse_wxl()
 
     def to_dict(self, json_file_path: str) -> None:
         if os.path.exists(json_file_path):
@@ -494,6 +510,7 @@ class NASR:
             **self.__PJAs.to_dict(),
             **self.__RDRs.to_dict(),
             **self.__STARs.to_dict(),
+            **self.__WXLs.to_dict(),
         }
 
         with open(json_file_path, "w") as jf:
@@ -529,6 +546,7 @@ class NASR:
         self.__PJAs.to_db(db_cursor)
         self.__RDRs.to_db(db_cursor)
         self.__STARs.to_db(db_cursor)
+        self.__WXLs.to_db(db_cursor)
 
         connection.commit()
         connection.close()

@@ -68,6 +68,7 @@ from .treatment_code import TreatmentCode
 from .use_code import UseCode
 from .vgsi_code import VGSICode
 from .weather_sensor_code import WeatherSensorCode
+from .weather_service_code import WeatherServiceCode
 from .weather_station_code import WeatherStationCode
 from .wind_indicator_code import WindIndicatorCode
 
@@ -144,4 +145,5 @@ __all__ = [
     "WeatherSensorCode",
     "WeatherStationCode",
     "WindIndicatorCode",
+    "WeatherServiceCode",
 ]

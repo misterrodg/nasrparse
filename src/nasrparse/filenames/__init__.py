@@ -64,6 +64,7 @@ from .pfr import PFR_BASE_FILE_NAME, PFR_RMT_FMT_FILE_NAME, PFR_SEG_FILE_NAME
 from .pja import PJA_BASE_FILE_NAME, PJA_CON_FILE_NAME
 from .rdr import RDR_FILE_NAME
 from .star import STAR_APT_FILE_NAME, STAR_BASE_FILE_NAME, STAR_RTE_FILE_NAME
+from .wxl import WXL_BASE_FILE_NAME, WXL_SVC_FILE_NAME
 
 __all__ = [
     "APT_ARS_FILE_NAME",
@@ -128,4 +129,6 @@ __all__ = [
     "STAR_APT_FILE_NAME",
     "STAR_BASE_FILE_NAME",
     "STAR_RTE_FILE_NAME",
+    "WXL_BASE_FILE_NAME",
+    "WXL_SVC_FILE_NAME",
 ]

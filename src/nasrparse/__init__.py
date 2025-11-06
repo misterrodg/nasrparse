@@ -30,6 +30,7 @@ from .records.pfr import PFR_BASE, PFR_RMT_FMT, PFR_SEG
 from .records.pja import PJA_BASE, PJA_CON
 from .records.rdr import RDR_BASE
 from .records.star import STAR_APT, STAR_BASE, STAR_RTE
+from .records.wxl import WXL_BASE, WXL_SVC
 
 __all__ = [
     "NASR",
@@ -96,4 +97,6 @@ __all__ = [
     "STAR_APT",
     "STAR_BASE",
     "STAR_RTE",
+    "WXL_BASE",
+    "WXL_SVC",
 ]
