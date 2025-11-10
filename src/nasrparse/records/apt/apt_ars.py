@@ -47,7 +47,7 @@ class APT_ARS(Base):
             f"{super().__repr__()}"
             f"RWY_ID={self.rwy_id!r}, "
             f"RWY_END_ID={self.rwy_end_id!r}, "
-            f"ARREST_DEVICE_CODE={self.arrest_device_code.value!r}"
+            f"ARREST_DEVICE_CODE={self.arrest_device_code!r}"
             " )"
         )
 

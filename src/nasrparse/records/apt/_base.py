@@ -48,7 +48,7 @@ class Base(TableBase):
         return (
             f"EFF_DATE={self.eff_date!r}, "
             f"SITE_NO={self.site_no!r}, "
-            f"SITE_TYPE_CODE={self.site_type_code.value!r}, "
+            f"SITE_TYPE_CODE={self.site_type_code!r}, "
             f"STATE_CODE={self.state_code!r}, "
             f"ARPT_ID={self.arpt_id!r}, "
             f"CITY={self.city!r}, "
