@@ -162,3 +162,25 @@ class PFR_BASE(Base):
             "route_string": self.route_string,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"origin_city: {self.origin_city}, "
+            f"origin_state_code: {self.origin_state_code}, "
+            f"origin_country_code: {self.origin_country_code}, "
+            f"dstn_city: {self.dstn_city}, "
+            f"dstn_state_code: {self.dstn_state_code}, "
+            f"dstn_country_code: {self.dstn_country_code}, "
+            f"special_area_descrip: {self.special_area_descrip}, "
+            f"alt_descrip: {self.alt_descrip}, "
+            f"aircraft: {self.aircraft}, "
+            f"hours: {self.hours}, "
+            f"route_dir_descrip: {self.route_dir_descrip}, "
+            f"designator: {self.designator}, "
+            f"nar_type: {self.nar_type}, "
+            f"inland_fac_fix: {self.inland_fac_fix}, "
+            f"coastal_fix: {self.coastal_fix}, "
+            f"destination: {self.destination}, "
+            f"route_string: {self.route_string}"
+        )

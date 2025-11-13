@@ -112,3 +112,18 @@ class MTR_AGY(Base):
             "hours": self.hours,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"agency_type: {self.agency_type.value if self.agency_type else None}, "
+            f"agency_name: {self.agency_name}, "
+            f"station: {self.station}, "
+            f"address: {self.address}, "
+            f"city: {self.city}, "
+            f"state_code: {self.state_code}, "
+            f"zip_code: {self.zip_code}, "
+            f"commercial_no: {self.commercial_no}, "
+            f"dsn_no: {self.dsn_no}, "
+            f"hours: {self.hours}"
+        )

@@ -82,3 +82,13 @@ class DP_BASE(Base):
             "served_arpt": self.served_arpt,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"amendment_no: {self.amendment_no}, "
+            f"dp_amend_eff_date: {self.dp_amend_eff_date.strftime("%Y-%m-%d") if self.dp_amend_eff_date else None}, "
+            f"rnav_flag: {self.rnav_flag}, "
+            f"graphical_dp_type: {self.graphical_dp_type}, "
+            f"served_arpt: {self.served_arpt}"
+        )

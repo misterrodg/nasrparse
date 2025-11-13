@@ -132,3 +132,20 @@ class WXL_BASE(Base):
             ),
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"elev: {self.elev}, "
+            f"survey_method_code: {self.survey_method_code.value if self.survey_method_code else None}"
+        )

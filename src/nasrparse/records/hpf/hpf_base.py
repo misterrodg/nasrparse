@@ -118,3 +118,18 @@ class HPF_BASE(Base):
             "leg_length_dist": self.leg_length_dist,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"fix_id: {self.fix_id}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"nav_id: {self.nav_id}, "
+            f"nav_type: {self.nav_type.value if self.nav_type else None}, "
+            f"hold_direction: {self.hold_direction.value if self.hold_direction else None}, "
+            f"hold_deg_or_crs: {self.hold_deg_or_crs}, "
+            f"azimuth: {self.azimuth}, "
+            f"course_inbound_deg: {self.course_inbound_deg}, "
+            f"turn_direction: {self.turn_direction}, "
+            f"leg_length_dist: {self.leg_length_dist}"
+        )

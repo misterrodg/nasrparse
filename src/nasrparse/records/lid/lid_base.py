@@ -103,6 +103,17 @@ class LID_BASE(Base):
         }
         return {**base_dict, **this_dict}
 
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"lid_group: {self.lid_group.value if self.lid_group else None}, "
+            f"fac_type: {self.fac_type.value if self.fac_type else None}, "
+            f"fac_name: {self.fac_name}, "
+            f"resp_artcc_id: {self.resp_artcc_id}, "
+            f"artcc_computer_id: {self.artcc_computer_id}, "
+            f"fss_id: {self.fss_id}"
+        )
+
     def __find_matching_enum(self, str_value: str | None) -> Enum:
         if str_value is None:
             return WeatherSensorCode.NULL  # Generic "NULL" from smallest Enum

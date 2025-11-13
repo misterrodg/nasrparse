@@ -112,3 +112,18 @@ class DP_RTE(Base):
             "arpt_rwy_assoc": self.arpt_rwy_assoc,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"route_portion_type: {self.route_portion_type}, "
+            f"route_name: {self.route_name}, "
+            f"body_seq: {self.body_seq}, "
+            f"transition_computer_code: {self.transition_computer_code}, "
+            f"point_seq: {self.point_seq}, "
+            f"point: {self.point}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"point_type: {self.point_type.value if self.point_type else None}, "
+            f"next_point: {self.next_point}, "
+            f"arpt_rwy_assoc: {self.arpt_rwy_assoc}"
+        )

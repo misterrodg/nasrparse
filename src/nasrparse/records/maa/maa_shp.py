@@ -58,3 +58,11 @@ class MAA_SHP(Base):
             "longitude": self.longitude,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"point_seq: {self.point_seq}, "
+            f"latitude: {self.latitude}, "
+            f"longitude: {self.longitude}"
+        )

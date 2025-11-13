@@ -9,7 +9,7 @@ class STAR_RTE(Base):
     """The Segment is identified as either a Transition or Body."""
     route_name: str | None
     """The Transition or Body Name."""
-    body_seq: str | None
+    body_seq: int | None
     """In the rare case that Body Name is not Unique for a given STAR, the BODY_SEQ will uniquely identify the Segment."""
     transition_computer_code: str | None
     """FAA-Assigned Computer Identifier for the TRANSITION."""
@@ -50,7 +50,7 @@ class STAR_RTE(Base):
         )
         self.route_portion_type = to_nullable_string(route_portion_type)
         self.route_name = to_nullable_string(route_name)
-        self.body_seq = to_nullable_string(body_seq)
+        self.body_seq = to_nullable_int(body_seq)
         self.transition_computer_code = to_nullable_string(transition_computer_code)
         self.point_seq = to_nullable_int(point_seq)
         self.point = to_nullable_string(point)
@@ -110,3 +110,18 @@ class STAR_RTE(Base):
             "arpt_rwy_assoc": self.arpt_rwy_assoc,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"route_portion_type: {self.route_portion_type}, "
+            f"route_name: {self.route_name}, "
+            f"body_seq: {self.body_seq}, "
+            f"transition_computer_code: {self.transition_computer_code}, "
+            f"point_seq: {self.point_seq}, "
+            f"point: {self.point}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"point_type: {self.point_type.value if self.point_type else None}, "
+            f"next_point: {self.next_point}, "
+            f"arpt_rwy_assoc: {self.arpt_rwy_assoc}"
+        )

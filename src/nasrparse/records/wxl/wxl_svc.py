@@ -62,3 +62,10 @@ class WXL_SVC(Base):
             "wea_affect_area": self.wea_affect_area,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"wea_svc_type_code: {self.wea_svc_type_code.value if self.wea_svc_type_code else None}, "
+            f"wea_affect_area: {self.wea_affect_area}"
+        )

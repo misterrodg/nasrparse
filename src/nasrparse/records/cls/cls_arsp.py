@@ -89,3 +89,14 @@ class CLS_ARSP(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"class_b_airspace: {self.class_b_airspace}, "
+            f"class_c_airspace: {self.class_c_airspace}, "
+            f"class_d_airspace: {self.class_d_airspace}, "
+            f"class_e_airspace: {self.class_e_airspace}, "
+            f"airspace_hrs: {self.airspace_hrs}, "
+            f"remark: {self.remark}"
+        )

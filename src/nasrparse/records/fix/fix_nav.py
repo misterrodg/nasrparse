@@ -42,10 +42,10 @@ class FIX_NAV(Base):
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"
-            f"NAV_ID={self.nav_id}, "
-            f"NAV_TYPE={self.nav_type}, "
-            f"BEARING={self.bearing}, "
-            f"DISTANCE={self.distance}"
+            f"NAV_ID={self.nav_id!r}, "
+            f"NAV_TYPE={self.nav_type!r}, "
+            f"BEARING={self.bearing!r}, "
+            f"DISTANCE={self.distance!r}"
             " )"
         )
 
@@ -71,3 +71,12 @@ class FIX_NAV(Base):
             "distance": self.distance,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"nav_id: {self.nav_id}, "
+            f"nav_type: {self.nav_type}, "
+            f"bearing: {self.bearing}, "
+            f"distance: {self.distance}"
+        )

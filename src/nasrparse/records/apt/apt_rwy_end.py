@@ -139,6 +139,10 @@ class APT_RWY_END(Base):
     """Displaced Threshold Elevation Source"""
     rwy_end_dspl_thr_elev_date: date | None
     """Displaced Threshold Elevation Source Date (YYYY/MM/DD)"""
+    tdz_elev_source: str | None
+    """Touch Down Zone Elevation Source"""
+    rwy_end_tdz_elev_date: date | None
+    """Touch Down Zone Elevation Source Date (YYYY/MM/DD)"""
     tkof_run_avbl: int | None
     """Takeoff Run Available (TORA), In Feet"""
     tkof_dist_avbl: int | None
@@ -233,6 +237,8 @@ class APT_RWY_END(Base):
         rwy_end_dspl_thr_psn_date: str,
         dspl_thr_elev_source: str,
         rwy_end_dspl_thr_elev_date: str,
+        tdz_elev_source: str,
+        rwy_end_tdz_elev_date: str,
         tkof_run_avbl: str,
         tkof_dist_avbl: str,
         aclt_stop_dist_avbl: str,
@@ -339,6 +345,10 @@ class APT_RWY_END(Base):
         self.rwy_end_dspl_thr_elev_date = to_nullable_date(
             rwy_end_dspl_thr_elev_date, "YYYY/MM/DD"
         )
+        self.tdz_elev_source = to_nullable_string(tdz_elev_source)
+        self.rwy_end_tdz_elev_date = to_nullable_date(
+            rwy_end_tdz_elev_date, "YYYY/MM/DD"
+        )
         self.tkof_run_avbl = to_nullable_int(tkof_run_avbl)
         self.tkof_dist_avbl = to_nullable_int(tkof_dist_avbl)
         self.aclt_stop_dist_avbl = to_nullable_int(aclt_stop_dist_avbl)
@@ -359,76 +369,78 @@ class APT_RWY_END(Base):
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"
-            f"RWY_ID={self.rwy_id!r} ,"
-            f"RWY_END_ID={self.rwy_end_id!r} ,"
-            f"TRUE_ALIGNMENT={self.true_alignment!r} ,"
-            f"ILS_TYPE={self.ils_type!r} ,"
-            f"RIGHT_HAND_TRAFFIC_PAT_FLAG={self.right_hand_traffic_pat_flag!r} ,"
-            f"RWY_MARKING_TYPE_CODE={self.rwy_marking_type_code!r} ,"
-            f"RWY_MARKING_COND={self.rwy_marking_cond!r} ,"
-            f"RWY_END_LAT_DEG={self.rwy_end_lat_deg!r} ,"
-            f"RWY_END_LAT_MIN={self.rwy_end_lat_min!r} ,"
-            f"RWY_END_LAT_SEC={self.rwy_end_lat_sec!r} ,"
-            f"RWY_END_LAT_HEMIS={self.rwy_end_lat_hemis!r} ,"
-            f"LAT_DECIMAL={self.lat_decimal!r} ,"
-            f"RWY_END_LONG_DEG={self.rwy_end_lon_deg!r} ,"
-            f"RWY_END_LONG_MIN={self.rwy_end_lon_min!r} ,"
-            f"RWY_END_LONG_SEC={self.rwy_end_lon_sec!r} ,"
-            f"RWY_END_LONG_HEMIS={self.rwy_end_lon_hemis!r} ,"
-            f"LONG_DECIMAL={self.lon_decimal!r} ,"
-            f"RWY_END_ELEV={self.rwy_end_elev!r} ,"
-            f"THR_CROSSING_HGT={self.thr_crossing_hgt!r} ,"
-            f"VISUAL_GLIDE_PATH_ANGLE={self.visual_glide_path_angle!r} ,"
-            f"DISPLACED_THR_LAT_DEG={self.displaced_thr_lat_deg!r} ,"
-            f"DISPLACED_THR_LAT_MIN={self.displaced_thr_lat_min!r} ,"
-            f"DISPLACED_THR_LAT_SEC={self.displaced_thr_lat_sec!r} ,"
-            f"DISPLACED_THR_LAT_HEMIS={self.displaced_thr_lat_hemis!r} ,"
-            f"LAT_DISPLACED_THR_DECIMAL={self.lat_displaced_thr_decimal!r} ,"
-            f"DISPLACED_THR_LONG_DEG={self.displaced_thr_lon_deg!r} ,"
-            f"DISPLACED_THR_LONG_MIN={self.displaced_thr_lon_min!r} ,"
-            f"DISPLACED_THR_LONG_SEC={self.displaced_thr_lon_sec!r} ,"
-            f"DISPLACED_THR_LONG_HEMIS={self.displaced_thr_lon_hemis!r} ,"
-            f"LONG_DISPLACED_THR_DECIMAL={self.lon_displaced_thr_decimal!r} ,"
-            f"DISPLACED_THR_ELEV={self.displaced_thr_elev!r} ,"
-            f"DISPLACED_THR_LEN={self.displaced_thr_len!r} ,"
-            f"TDZ_ELEV={self.tdz_elev!r} ,"
-            f"VGSI_CODE={self.vgsi_code!r} ,"
-            f"RWY_VISUAL_RANGE_EQUIP_CODE={self.rwy_visual_range_equip_code!r} ,"
-            f"RWY_VSBY_VALUE_EQUIP_FLAG={self.rwy_vsby_value_equip_flag!r} ,"
-            f"APCH_LGT_SYSTEM_CODE={self.apch_lgt_system_code!r} ,"
-            f"RWY_END_LGTS_FLAG={self.rwy_end_lgts_flag!r} ,"
-            f"CNTRLN_LGTS_AVBL_FLAG={self.cntrln_lgts_avbl_flag!r} ,"
-            f"TDZ_LGT_AVBL_FLAG={self.tdz_lgt_avbl_flag!r} ,"
-            f"OBSTN_TYPE={self.obstn_type!r} ,"
-            f"OBSTN_MRKD_CODE={self.obstn_mrkd_code!r} ,"
-            f"FAR_PART_77_CODE={self.far_part_77_code!r} ,"
-            f"OBSTN_CLNC_SLOPE={self.obstn_clnc_slope!r} ,"
-            f"OBSTN_HGT={self.obstn_hgt!r} ,"
-            f"DIST_FROM_THR={self.dist_from_thr!r} ,"
-            f"CNTRLN_OFFSET={self.cntrln_offset!r} ,"
-            f"CNTRLN_DIR_CODE={self.cntrln_dir_code!r} ,"
-            f"RWY_GRAD={self.rwy_grad!r} ,"
-            f"RWY_GRAD_DIRECTION={self.rwy_grad_direction!r} ,"
-            f"RWY_END_PSN_SOURCE={self.rwy_end_psn_source!r} ,"
-            f"RWY_END_PSN_DATE={self.rwy_end_psn_date!r} ,"
-            f"RWY_END_ELEV_SOURCE={self.rwy_end_elev_source!r} ,"
-            f"RWY_END_ELEV_DATE={self.rwy_end_elev_date!r} ,"
-            f"DSPL_THR_PSN_SOURCE={self.dspl_thr_psn_source!r} ,"
-            f"RWY_END_DSPL_THR_PSN_DATE={self.rwy_end_dspl_thr_psn_date!r} ,"
-            f"DSPL_THR_ELEV_SOURCE={self.dspl_thr_elev_source!r} ,"
-            f"RWY_END_DSPL_THR_ELEV_DATE={self.rwy_end_dspl_thr_elev_date!r} ,"
-            f"TKOF_RUN_AVBL={self.tkof_run_avbl!r} ,"
-            f"TKOF_DIST_AVBL={self.tkof_dist_avbl!r} ,"
-            f"ACLT_STOP_DIST_AVBL={self.aclt_stop_dist_avbl!r} ,"
-            f"LNDG_DIST_AVBL={self.lndg_dist_avbl!r} ,"
-            f"LAHSO_ALD={self.lahso_ald!r} ,"
-            f"RWY_END_INTERSECT_LAHSO={self.rwy_end_intersect_lahso!r} ,"
-            f"LAHSO_DESC={self.lahso_desc!r} ,"
-            f"LAHSO_LAT={self.lahso_lat!r} ,"
-            f"LAT_LAHSO_DECIMAL={self.lat_lahso_decimal!r} ,"
-            f"LAHSO_LONG={self.lahso_lon!r} ,"
-            f"LONG_LAHSO_DECIMAL={self.lon_lahso_decimal!r} ,"
-            f"LAHSO_PSN_SOURCE={self.lahso_psn_source!r} ,"
+            f"RWY_ID={self.rwy_id!r}, "
+            f"RWY_END_ID={self.rwy_end_id!r}, "
+            f"TRUE_ALIGNMENT={self.true_alignment!r}, "
+            f"ILS_TYPE={self.ils_type!r}, "
+            f"RIGHT_HAND_TRAFFIC_PAT_FLAG={self.right_hand_traffic_pat_flag!r}, "
+            f"RWY_MARKING_TYPE_CODE={self.rwy_marking_type_code!r}, "
+            f"RWY_MARKING_COND={self.rwy_marking_cond!r}, "
+            f"RWY_END_LAT_DEG={self.rwy_end_lat_deg!r}, "
+            f"RWY_END_LAT_MIN={self.rwy_end_lat_min!r}, "
+            f"RWY_END_LAT_SEC={self.rwy_end_lat_sec!r}, "
+            f"RWY_END_LAT_HEMIS={self.rwy_end_lat_hemis!r}, "
+            f"LAT_DECIMAL={self.lat_decimal!r}, "
+            f"RWY_END_LON_DEG={self.rwy_end_lon_deg!r}, "
+            f"RWY_END_LON_MIN={self.rwy_end_lon_min!r}, "
+            f"RWY_END_LON_SEC={self.rwy_end_lon_sec!r}, "
+            f"RWY_END_LON_HEMIS={self.rwy_end_lon_hemis!r}, "
+            f"LON_DECIMAL={self.lon_decimal!r}, "
+            f"RWY_END_ELEV={self.rwy_end_elev!r}, "
+            f"THR_CROSSING_HGT={self.thr_crossing_hgt!r}, "
+            f"VISUAL_GLIDE_PATH_ANGLE={self.visual_glide_path_angle!r}, "
+            f"DISPLACED_THR_LAT_DEG={self.displaced_thr_lat_deg!r}, "
+            f"DISPLACED_THR_LAT_MIN={self.displaced_thr_lat_min!r}, "
+            f"DISPLACED_THR_LAT_SEC={self.displaced_thr_lat_sec!r}, "
+            f"DISPLACED_THR_LAT_HEMIS={self.displaced_thr_lat_hemis!r}, "
+            f"LAT_DISPLACED_THR_DECIMAL={self.lat_displaced_thr_decimal!r}, "
+            f"DISPLACED_THR_LON_DEG={self.displaced_thr_lon_deg!r}, "
+            f"DISPLACED_THR_LON_MIN={self.displaced_thr_lon_min!r}, "
+            f"DISPLACED_THR_LON_SEC={self.displaced_thr_lon_sec!r}, "
+            f"DISPLACED_THR_LON_HEMIS={self.displaced_thr_lon_hemis!r}, "
+            f"LON_DISPLACED_THR_DECIMAL={self.lon_displaced_thr_decimal!r}, "
+            f"DISPLACED_THR_ELEV={self.displaced_thr_elev!r}, "
+            f"DISPLACED_THR_LEN={self.displaced_thr_len!r}, "
+            f"TDZ_ELEV={self.tdz_elev!r}, "
+            f"VGSI_CODE={self.vgsi_code!r}, "
+            f"RWY_VISUAL_RANGE_EQUIP_CODE={self.rwy_visual_range_equip_code!r}, "
+            f"RWY_VSBY_VALUE_EQUIP_FLAG={self.rwy_vsby_value_equip_flag!r}, "
+            f"APCH_LGT_SYSTEM_CODE={self.apch_lgt_system_code!r}, "
+            f"RWY_END_LGTS_FLAG={self.rwy_end_lgts_flag!r}, "
+            f"CNTRLN_LGTS_AVBL_FLAG={self.cntrln_lgts_avbl_flag!r}, "
+            f"TDZ_LGT_AVBL_FLAG={self.tdz_lgt_avbl_flag!r}, "
+            f"OBSTN_TYPE={self.obstn_type!r}, "
+            f"OBSTN_MRKD_CODE={self.obstn_mrkd_code!r}, "
+            f"FAR_PART_77_CODE={self.far_part_77_code!r}, "
+            f"OBSTN_CLNC_SLOPE={self.obstn_clnc_slope!r}, "
+            f"OBSTN_HGT={self.obstn_hgt!r}, "
+            f"DIST_FROM_THR={self.dist_from_thr!r}, "
+            f"CNTRLN_OFFSET={self.cntrln_offset!r}, "
+            f"CNTRLN_DIR_CODE={self.cntrln_dir_code!r}, "
+            f"RWY_GRAD={self.rwy_grad!r}, "
+            f"RWY_GRAD_DIRECTION={self.rwy_grad_direction!r}, "
+            f"RWY_END_PSN_SOURCE={self.rwy_end_psn_source!r}, "
+            f"RWY_END_PSN_DATE={self.rwy_end_psn_date!r}, "
+            f"RWY_END_ELEV_SOURCE={self.rwy_end_elev_source!r}, "
+            f"RWY_END_ELEV_DATE={self.rwy_end_elev_date!r}, "
+            f"DSPL_THR_PSN_SOURCE={self.dspl_thr_psn_source!r}, "
+            f"RWY_END_DSPL_THR_PSN_DATE={self.rwy_end_dspl_thr_psn_date!r}, "
+            f"DSPL_THR_ELEV_SOURCE={self.dspl_thr_elev_source!r}, "
+            f"RWY_END_DSPL_THR_ELEV_DATE={self.rwy_end_dspl_thr_elev_date!r}, "
+            f"TDZ_ELEV_SOURCE={self.tdz_elev_source!r}, "
+            f"RWY_END_TDZ_ELEV_DATE={self.rwy_end_tdz_elev_date!r}, "
+            f"TKOF_RUN_AVBL={self.tkof_run_avbl!r}, "
+            f"TKOF_DIST_AVBL={self.tkof_dist_avbl!r}, "
+            f"ACLT_STOP_DIST_AVBL={self.aclt_stop_dist_avbl!r}, "
+            f"LNDG_DIST_AVBL={self.lndg_dist_avbl!r}, "
+            f"LAHSO_ALD={self.lahso_ald!r}, "
+            f"RWY_END_INTERSECT_LAHSO={self.rwy_end_intersect_lahso!r}, "
+            f"LAHSO_DESC={self.lahso_desc!r}, "
+            f"LAHSO_LAT={self.lahso_lat!r}, "
+            f"LAT_LAHSO_DECIMAL={self.lat_lahso_decimal!r}, "
+            f"LAHSO_LON={self.lahso_lon!r}, "
+            f"LON_LAHSO_DECIMAL={self.lon_lahso_decimal!r}, "
+            f"LAHSO_PSN_SOURCE={self.lahso_psn_source!r}, "
             f"RWY_END_LAHSO_PSN_DATE={self.rwy_end_lahso_psn_date!r}"
             " )"
         )
@@ -496,6 +508,8 @@ class APT_RWY_END(Base):
                 "rwy_end_dspl_thr_psn_date",
                 "dspl_thr_elev_source",
                 "rwy_end_dspl_thr_elev_date",
+                "tdz_elev_source",
+                "rwy_end_tdz_elev_date",
                 "tkof_run_avbl",
                 "tkof_dist_avbl",
                 "aclt_stop_dist_avbl",
@@ -519,19 +533,27 @@ class APT_RWY_END(Base):
             "rwy_id": self.rwy_id,
             "rwy_end_id": self.rwy_end_id,
             "true_alignment": self.true_alignment,
-            "ils_type": self.ils_type.value,
+            "ils_type": self.ils_type.value if self.ils_type else None,
             "right_hand_traffic_pat_flag": self.right_hand_traffic_pat_flag,
-            "rwy_marking_type_code": self.rwy_marking_type_code.value,
-            "rwy_marking_cond": self.rwy_marking_cond.value,
+            "rwy_marking_type_code": (
+                self.rwy_marking_type_code.value if self.rwy_marking_type_code else None
+            ),
+            "rwy_marking_cond": (
+                self.rwy_marking_cond.value if self.rwy_marking_cond else None
+            ),
             "rwy_end_lat_deg": self.rwy_end_lat_deg,
             "rwy_end_lat_min": self.rwy_end_lat_min,
             "rwy_end_lat_sec": self.rwy_end_lat_sec,
-            "rwy_end_lat_hemis": self.rwy_end_lat_hemis.value,
+            "rwy_end_lat_hemis": (
+                self.rwy_end_lat_hemis.value if self.rwy_end_lat_hemis else None
+            ),
             "lat_decimal": self.lat_decimal,
             "rwy_end_lon_deg": self.rwy_end_lon_deg,
             "rwy_end_lon_min": self.rwy_end_lon_min,
             "rwy_end_lon_sec": self.rwy_end_lon_sec,
-            "rwy_end_lon_hemis": self.rwy_end_lon_hemis.value,
+            "rwy_end_lon_hemis": (
+                self.rwy_end_lon_hemis.value if self.rwy_end_lon_hemis else None
+            ),
             "lon_decimal": self.lon_decimal,
             "rwy_end_elev": self.rwy_end_elev,
             "thr_crossing_hgt": self.thr_crossing_hgt,
@@ -539,26 +561,44 @@ class APT_RWY_END(Base):
             "displaced_thr_lat_deg": self.displaced_thr_lat_deg,
             "displaced_thr_lat_min": self.displaced_thr_lat_min,
             "displaced_thr_lat_sec": self.displaced_thr_lat_sec,
-            "displaced_thr_lat_hemis": self.displaced_thr_lat_hemis.value,
+            "displaced_thr_lat_hemis": (
+                self.displaced_thr_lat_hemis.value
+                if self.displaced_thr_lat_hemis
+                else None
+            ),
             "lat_displaced_thr_decimal": self.lat_displaced_thr_decimal,
             "displaced_thr_lon_deg": self.displaced_thr_lon_deg,
             "displaced_thr_lon_min": self.displaced_thr_lon_min,
             "displaced_thr_lon_sec": self.displaced_thr_lon_sec,
-            "displaced_thr_lon_hemis": self.displaced_thr_lon_hemis.value,
+            "displaced_thr_lon_hemis": (
+                self.displaced_thr_lon_hemis.value
+                if self.displaced_thr_lon_hemis
+                else None
+            ),
             "lon_displaced_thr_decimal": self.lon_displaced_thr_decimal,
             "displaced_thr_elev": self.displaced_thr_elev,
             "displaced_thr_len": self.displaced_thr_len,
             "tdz_elev": self.tdz_elev,
-            "vgsi_code": self.vgsi_code.value,
-            "rwy_visual_range_equip_code": self.rwy_visual_range_equip_code.value,
+            "vgsi_code": self.vgsi_code.value if self.vgsi_code else None,
+            "rwy_visual_range_equip_code": (
+                self.rwy_visual_range_equip_code.value
+                if self.rwy_visual_range_equip_code
+                else None
+            ),
             "rwy_vsby_value_equip_flag": self.rwy_vsby_value_equip_flag,
-            "apch_lgt_system_code": self.apch_lgt_system_code.value,
+            "apch_lgt_system_code": (
+                self.apch_lgt_system_code.value if self.apch_lgt_system_code else None
+            ),
             "rwy_end_lgts_flag": self.rwy_end_lgts_flag,
             "cntrln_lgts_avbl_flag": self.cntrln_lgts_avbl_flag,
             "tdz_lgt_avbl_flag": self.tdz_lgt_avbl_flag,
             "obstn_type": self.obstn_type,
-            "obstn_mrkd_code": self.obstn_mrkd_code.value,
-            "far_part_77_code": self.far_part_77_code.value,
+            "obstn_mrkd_code": (
+                self.obstn_mrkd_code.value if self.obstn_mrkd_code else None
+            ),
+            "far_part_77_code": (
+                self.far_part_77_code.value if self.far_part_77_code else None
+            ),
             "obstn_clnc_slope": self.obstn_clnc_slope,
             "obstn_hgt": self.obstn_hgt,
             "dist_from_thr": self.dist_from_thr,
@@ -567,13 +607,35 @@ class APT_RWY_END(Base):
             "rwy_grad": self.rwy_grad,
             "rwy_grad_direction": self.rwy_grad_direction,
             "rwy_end_psn_source": self.rwy_end_psn_source,
-            "rwy_end_psn_date": self.rwy_end_psn_date,
+            "rwy_end_psn_date": (
+                self.rwy_end_psn_date.strftime("%Y-%m-%d")
+                if self.rwy_end_psn_date
+                else None
+            ),
             "rwy_end_elev_source": self.rwy_end_elev_source,
-            "rwy_end_elev_date": self.rwy_end_elev_date,
+            "rwy_end_elev_date": (
+                self.rwy_end_elev_date.strftime("%Y-%m-%d")
+                if self.rwy_end_elev_date
+                else None
+            ),
             "dspl_thr_psn_source": self.dspl_thr_psn_source,
-            "rwy_end_dspl_thr_psn_date": self.rwy_end_dspl_thr_psn_date,
+            "rwy_end_dspl_thr_psn_date": (
+                self.rwy_end_dspl_thr_psn_date.strftime("%Y-%m-%d")
+                if self.rwy_end_dspl_thr_psn_date
+                else None
+            ),
             "dspl_thr_elev_source": self.dspl_thr_elev_source,
-            "rwy_end_dspl_thr_elev_date": self.rwy_end_dspl_thr_elev_date,
+            "rwy_end_dspl_thr_elev_date": (
+                self.rwy_end_dspl_thr_elev_date.strftime("%Y-%m-%d")
+                if self.rwy_end_dspl_thr_elev_date
+                else None
+            ),
+            "tdz_elev_source": self.tdz_elev_source,
+            "rwy_end_tdz_elev_date": (
+                self.rwy_end_tdz_elev_date.strftime("%Y-%m-%d")
+                if self.rwy_end_tdz_elev_date
+                else None
+            ),
             "tkof_run_avbl": self.tkof_run_avbl,
             "tkof_dist_avbl": self.tkof_dist_avbl,
             "aclt_stop_dist_avbl": self.aclt_stop_dist_avbl,
@@ -586,6 +648,88 @@ class APT_RWY_END(Base):
             "lahso_lon": self.lahso_lon,
             "lon_lahso_decimal": self.lon_lahso_decimal,
             "lahso_psn_source": self.lahso_psn_source,
-            "rwy_end_lahso_psn_date": self.rwy_end_lahso_psn_date,
+            "rwy_end_lahso_psn_date": (
+                self.rwy_end_lahso_psn_date.strftime("%Y-%m-%d")
+                if self.rwy_end_lahso_psn_date
+                else None
+            ),
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"rwy_id: {self.rwy_id}, "
+            f"rwy_end_id: {self.rwy_end_id}, "
+            f"true_alignment: {self.true_alignment}, "
+            f"ils_type: {self.ils_type.value if self.ils_type else None}, "
+            f"right_hand_traffic_pat_flag: {self.right_hand_traffic_pat_flag}, "
+            f"rwy_marking_type_code: {self.rwy_marking_type_code.value if self.rwy_marking_type_code else None}, "
+            f"rwy_marking_cond: {self.rwy_marking_cond.value if self.rwy_marking_cond else None}, "
+            f"rwy_end_lat_deg: {self.rwy_end_lat_deg}, "
+            f"rwy_end_lat_min: {self.rwy_end_lat_min}, "
+            f"rwy_end_lat_sec: {self.rwy_end_lat_sec}, "
+            f"rwy_end_lat_hemis: {self.rwy_end_lat_hemis.value if self.rwy_end_lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"rwy_end_lon_deg: {self.rwy_end_lon_deg}, "
+            f"rwy_end_lon_min: {self.rwy_end_lon_min}, "
+            f"rwy_end_lon_sec: {self.rwy_end_lon_sec}, "
+            f"rwy_end_lon_hemis: {self.rwy_end_lon_hemis.value if self.rwy_end_lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"rwy_end_elev: {self.rwy_end_elev}, "
+            f"thr_crossing_hgt: {self.thr_crossing_hgt}, "
+            f"visual_glide_path_angle: {self.visual_glide_path_angle}, "
+            f"displaced_thr_lat_deg: {self.displaced_thr_lat_deg}, "
+            f"displaced_thr_lat_min: {self.displaced_thr_lat_min}, "
+            f"displaced_thr_lat_sec: {self.displaced_thr_lat_sec}, "
+            f"displaced_thr_lat_hemis: {self.displaced_thr_lat_hemis.value if self.displaced_thr_lat_hemis else None}, "
+            f"lat_displaced_thr_decimal: {self.lat_displaced_thr_decimal}, "
+            f"displaced_thr_lon_deg: {self.displaced_thr_lon_deg}, "
+            f"displaced_thr_lon_min: {self.displaced_thr_lon_min}, "
+            f"displaced_thr_lon_sec: {self.displaced_thr_lon_sec}, "
+            f"displaced_thr_lon_hemis: {self.displaced_thr_lon_hemis.value if self.displaced_thr_lon_hemis else None}, "
+            f"lon_displaced_thr_decimal: {self.lon_displaced_thr_decimal}, "
+            f"displaced_thr_elev: {self.displaced_thr_elev}, "
+            f"displaced_thr_len: {self.displaced_thr_len}, "
+            f"tdz_elev: {self.tdz_elev}, "
+            f"vgsi_code: {self.vgsi_code.value if self.vgsi_code else None}, "
+            f"rwy_visual_range_equip_code: {self.rwy_visual_range_equip_code.value if self.rwy_visual_range_equip_code else None}, "
+            f"rwy_vsby_value_equip_flag: {self.rwy_vsby_value_equip_flag}, "
+            f"apch_lgt_system_code: {self.apch_lgt_system_code.value if self.apch_lgt_system_code else None}, "
+            f"rwy_end_lgts_flag: {self.rwy_end_lgts_flag}, "
+            f"cntrln_lgts_avbl_flag: {self.cntrln_lgts_avbl_flag}, "
+            f"tdz_lgt_avbl_flag: {self.tdz_lgt_avbl_flag}, "
+            f"obstn_type: {self.obstn_type}, "
+            f"obstn_mrkd_code: {self.obstn_mrkd_code.value if self.obstn_mrkd_code else None}, "
+            f"far_part_77_code: {self.far_part_77_code.value if self.far_part_77_code else None}, "
+            f"obstn_clnc_slope: {self.obstn_clnc_slope}, "
+            f"obstn_hgt: {self.obstn_hgt}, "
+            f"dist_from_thr: {self.dist_from_thr}, "
+            f"cntrln_offset: {self.cntrln_offset}, "
+            f"cntrln_dir_code: {self.cntrln_dir_code}, "
+            f"rwy_grad: {self.rwy_grad}, "
+            f"rwy_grad_direction: {self.rwy_grad_direction}, "
+            f"rwy_end_psn_source: {self.rwy_end_psn_source}, "
+            f"rwy_end_psn_date: {self.rwy_end_psn_date.strftime("%Y-%m-%d") if self.rwy_end_psn_date else None}, "
+            f"rwy_end_elev_source: {self.rwy_end_elev_source}, "
+            f"rwy_end_elev_date: {self.rwy_end_elev_date.strftime("%Y-%m-%d") if self.rwy_end_elev_date else None}, "
+            f"dspl_thr_psn_source: {self.dspl_thr_psn_source}, "
+            f"rwy_end_dspl_thr_psn_date: {self.rwy_end_dspl_thr_psn_date.strftime("%Y-%m-%d") if self.rwy_end_dspl_thr_psn_date else None}, "
+            f"dspl_thr_elev_source: {self.dspl_thr_elev_source}, "
+            f"rwy_end_dspl_thr_elev_date: {self.rwy_end_dspl_thr_elev_date.strftime("%Y-%m-%d") if self.rwy_end_dspl_thr_elev_date else None}, "
+            f"tdz_elev_source: {self.tdz_elev_source}, "
+            f"rwy_end_tdz_elev_date: {self.rwy_end_tdz_elev_date.strftime("%Y-%m-%d") if self.rwy_end_tdz_elev_date else None}, "
+            f"tkof_run_avbl: {self.tkof_run_avbl}, "
+            f"tkof_dist_avbl: {self.tkof_dist_avbl}, "
+            f"aclt_stop_dist_avbl: {self.aclt_stop_dist_avbl}, "
+            f"lndg_dist_avbl: {self.lndg_dist_avbl}, "
+            f"lahso_ald: {self.lahso_ald}, "
+            f"rwy_end_intersect_lahso: {self.rwy_end_intersect_lahso}, "
+            f"lahso_desc: {self.lahso_desc}, "
+            f"lahso_lat: {self.lahso_lat}, "
+            f"lat_lahso_decimal: {self.lat_lahso_decimal}, "
+            f"lahso_lon: {self.lahso_lon}, "
+            f"lon_lahso_decimal: {self.lon_lahso_decimal}, "
+            f"lahso_psn_source: {self.lahso_psn_source}, "
+            f"rwy_end_lahso_psn_date: {self.rwy_end_lahso_psn_date.strftime("%Y-%m-%d") if self.rwy_end_lahso_psn_date else None}"
+        )

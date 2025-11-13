@@ -78,3 +78,12 @@ class AWY_BASE(Base):
             "airway_string": self.airway_string,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"awy_designation: {self.awy_designation.value if self.awy_designation else None}, "
+            f"update_date: {self.update_date.strftime("%Y-%m-%d") if self.update_date else None}, "
+            f"remark: {self.remark}, "
+            f"airway_string: {self.airway_string}"
+        )

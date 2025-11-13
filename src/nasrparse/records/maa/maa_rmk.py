@@ -65,3 +65,12 @@ class MAA_RMK(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"tab_name: {self.tab_name}, "
+            f"ref_col_name: {self.ref_col_name}, "
+            f"ref_col_seq_no: {self.ref_col_seq_no}, "
+            f"remark: {self.remark}"
+        )

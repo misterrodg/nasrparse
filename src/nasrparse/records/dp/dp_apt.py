@@ -69,3 +69,12 @@ class DP_APT(Base):
             "rwy_end_id": self.rwy_end_id,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"body_name: {self.body_name}, "
+            f"body_seq: {self.body_seq}, "
+            f"arpt_id: {self.arpt_id}, "
+            f"rwy_end_id: {self.rwy_end_id}"
+        )

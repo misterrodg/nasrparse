@@ -62,3 +62,12 @@ class Base(TableBase):
             "state_code": self.state_code,
             "country_code": self.country_code,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"facility_id: {self.facility_id}, "
+            f"facility_type: {self.facility_type.value if self.facility_type else None}, "
+            f"state_code: {self.state_code}, "
+            f"country_code: {self.country_code}, "
+        )

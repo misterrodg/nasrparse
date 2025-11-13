@@ -99,3 +99,16 @@ class PFR_SEG(Base):
             "next_seg": self.next_seg,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"segment_seq: {self.segment_seq}, "
+            f"seg_value: {self.seg_value}, "
+            f"seg_type: {self.seg_type}, "
+            f"state_code: {self.state_code}, "
+            f"country_code: {self.country_code}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"nav_type: {self.nav_type}, "
+            f"next_seg: {self.next_seg}"
+        )

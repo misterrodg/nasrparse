@@ -29,10 +29,10 @@ class Base(TableBase):
 
     def __repr__(self) -> str:
         return (
-            f"RCode={self.rcode!r}, "
-            f"Orig={self.orig!r}, "
-            f"Dest={self.dest!r}, "
-            f"DepFix={self.depfix!r}, "
+            f"RCODE={self.rcode!r}, "
+            f"ORIG={self.orig!r}, "
+            f"DEST={self.dest!r}, "
+            f"DEPFIX={self.depfix!r}, "
         )
 
     def ordered_fields(self) -> list:
@@ -50,3 +50,11 @@ class Base(TableBase):
             "dest": self.dest,
             "depfix": self.depfix,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"rcode: {self.rcode}, "
+            f"orig: {self.orig}, "
+            f"dest: {self.dest}, "
+            f"depfix: {self.depfix}, "
+        )

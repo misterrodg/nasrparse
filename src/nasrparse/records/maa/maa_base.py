@@ -184,7 +184,7 @@ class MAA_BASE(Base):
             "city": self.city,
             "latitude": self.latitude,
             "longitude": self.longitude,
-            "arpt_ids": " ".join(self.arpt_ids),
+            "arpt_ids": " ".join(self.arpt_ids) if self.arpt_ids else None,
             "nearest_arpt": self.nearest_arpt,
             "nearest_arpt_dist": self.nearest_arpt_dist,
             "nearest_arpt_dir": (
@@ -201,3 +201,30 @@ class MAA_BASE(Base):
             "user_group_name": self.user_group_name,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"maa_type_name: {self.maa_type_name.value if self.maa_type_name else None}, "
+            f"nav_id: {self.nav_id}, "
+            f"nav_type: {self.nav_type.value if self.nav_type else None}, "
+            f"nav_radial: {self.nav_radial}, "
+            f"nav_distance: {self.nav_distance}, "
+            f"state_code: {self.state_code}, "
+            f"city: {self.city}, "
+            f"latitude: {self.latitude}, "
+            f"longitude: {self.longitude}, "
+            f"arpt_ids: {" ".join(self.arpt_ids) if self.arpt_ids else None}, "
+            f"nearest_arpt: {self.nearest_arpt}, "
+            f"nearest_arpt_dist: {self.nearest_arpt_dist}, "
+            f"nearest_arpt_dir: {self.nearest_arpt_dir.value if self.nearest_arpt_dir else None}, "
+            f"maa_name: {self.maa_name}, "
+            f"max_alt: {self.max_alt}, "
+            f"min_alt: {self.min_alt}, "
+            f"maa_radius: {self.maa_radius}, "
+            f"description: {self.description}, "
+            f"maa_use: {self.maa_use}, "
+            f"check_notams: {self.check_notams}, "
+            f"time_of_use: {self.time_of_use}, "
+            f"user_group_name: {self.user_group_name}"
+        )

@@ -1,10 +1,10 @@
-from nasrparse.functions import to_nullable_string
+from nasrparse.functions import to_nullable_int, to_nullable_string
 
 from ._base import Base
 
 
 class MTR_SOP(Base):
-    sop_seq_no: str | None
+    sop_seq_no: int | None
     """SOP Text Computer assigned Sequence Number"""
     sop_text: str | None
     """Standard Operating Procedure Text"""
@@ -25,7 +25,7 @@ class MTR_SOP(Base):
             route_id,
             artcc,
         )
-        self.sop_seq_no = to_nullable_string(sop_seq_no)
+        self.sop_seq_no = to_nullable_int(sop_seq_no)
         self.sop_text = to_nullable_string(sop_text)
 
     def __repr__(self) -> str:
@@ -55,3 +55,10 @@ class MTR_SOP(Base):
             "sop_text": self.sop_text,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"sop_seq_no: {self.sop_seq_no}, "
+            f"sop_text: {self.sop_text}"
+        )

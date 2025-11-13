@@ -1,10 +1,10 @@
-from nasrparse.functions import to_nullable_string
+from nasrparse.functions import to_nullable_int, to_nullable_string
 
 from ._base import Base
 
 
 class MTR_TERR(Base):
-    terrain_seq_no: str | None
+    terrain_seq_no: int | None
     """TERRAIN Text Computer assigned Sequence Number"""
     terrain_text: str | None
     """Terrain Following Operations Text"""
@@ -25,7 +25,7 @@ class MTR_TERR(Base):
             route_id,
             artcc,
         )
-        self.terrain_seq_no = to_nullable_string(terrain_seq_no)
+        self.terrain_seq_no = to_nullable_int(terrain_seq_no)
         self.terrain_text = to_nullable_string(terrain_text)
 
     def __repr__(self) -> str:
@@ -55,3 +55,10 @@ class MTR_TERR(Base):
             "terrain_text": self.terrain_text,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"terrain_seq_no: {self.terrain_seq_no}, "
+            f"terrain_text: {self.terrain_text}"
+        )

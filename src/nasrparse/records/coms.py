@@ -53,6 +53,7 @@ class COMs:
                     lon_hemis=row["LONG_HEMIS"],
                     lon_decimal=row["LONG_DECIMAL"],
                     facility_id=row["FACILITY_ID"],
+                    facility_name=row["FACILITY_NAME"],
                     alt_fss_id=row["ALT_FSS_ID"],
                     alt_fss_name=row["ALT_FSS_NAME"],
                     opr_hrs=row["OPR_HRS"],

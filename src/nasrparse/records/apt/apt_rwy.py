@@ -190,19 +190,52 @@ class APT_RWY(Base):
                 if self.surface_type_code
                 else None
             ),
-            "cond": self.cond.value,
-            "treatment_code": self.treatment_code.value,
+            "cond": self.cond.value if self.cond else None,
+            "treatment_code": (
+                self.treatment_code.value if self.treatment_code else None
+            ),
             "pcn": self.pcn,
-            "pavement_type_code": self.pavement_type_code.value,
+            "pavement_type_code": (
+                self.pavement_type_code.value if self.pavement_type_code else None
+            ),
             "subgrade_strength_code": self.subgrade_strength_code,
             "tire_pres_code": self.tire_pres_code,
-            "dtrm_method_code": self.dtrm_method_code.value,
-            "rwy_lgt_code": self.rwy_lgt_code.value,
+            "dtrm_method_code": (
+                self.dtrm_method_code.value if self.dtrm_method_code else None
+            ),
+            "rwy_lgt_code": self.rwy_lgt_code.value if self.rwy_lgt_code else None,
             "rwy_len_source": self.rwy_len_source,
-            "length_source_date": self.length_source_date,
+            "length_source_date": (
+                self.length_source_date.strftime("%Y-%m-%d")
+                if self.length_source_date
+                else None
+            ),
             "gross_wt_sw": self.gross_wt_sw,
             "gross_wt_dw": self.gross_wt_dw,
             "gross_wt_dtw": self.gross_wt_dtw,
             "gross_wt_ddtw": self.gross_wt_ddtw,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"rwy_id: {self.rwy_id}, "
+            f"rwy_len: {self.rwy_len}, "
+            f"rwy_width: {self.rwy_width}, "
+            f"surface_type_code: {", ".join(member.value for member in self.surface_type_code if member.value is not None) if self.surface_type_code else None}, "
+            f"cond: {self.cond.value if self.cond else None}, "
+            f"treatment_code: {self.treatment_code.value if self.treatment_code else None}, "
+            f"pcn: {self.pcn}, "
+            f"pavement_type_code: {self.pavement_type_code.value if self.pavement_type_code else None}, "
+            f"subgrade_strength_code: {self.subgrade_strength_code}, "
+            f"tire_pres_code: {self.tire_pres_code}, "
+            f"dtrm_method_code: {self.dtrm_method_code.value if self.dtrm_method_code else None}, "
+            f"rwy_lgt_code: {self.rwy_lgt_code.value if self.rwy_lgt_code else None}, "
+            f"rwy_len_source: {self.rwy_len_source}, "
+            f"length_source_date: {self.length_source_date.strftime("%Y-%m-%d") if self.length_source_date else None}, "
+            f"gross_wt_sw: {self.gross_wt_sw}, "
+            f"gross_wt_dw: {self.gross_wt_dw}, "
+            f"gross_wt_dtw: {self.gross_wt_dtw}, "
+            f"gross_wt_ddtw: {self.gross_wt_ddtw}"
+        )

@@ -151,3 +151,24 @@ class ARB_SEG(Base):
             "nas_descrip_flag": self.nas_descrip_flag,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"rec_id: {self.rec_id}, "
+            f"altitude: {self.altitude.value if self.altitude else None}, "
+            f"type: {self.type.value if self.type else None}, "
+            f"point_seq: {self.point_seq}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"bndry_pt_descrip: {self.bndry_pt_descrip}, "
+            f"nas_descrip_flag: {self.nas_descrip_flag}"
+        )

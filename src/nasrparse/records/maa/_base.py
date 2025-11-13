@@ -35,3 +35,9 @@ class Base(TableBase):
             "eff_date": self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None,
             "maa_id": self.maa_id,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"maa_id: {self.maa_id}, "
+        )

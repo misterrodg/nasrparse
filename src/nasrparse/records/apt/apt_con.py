@@ -110,3 +110,17 @@ class APT_CON(Base):
             "phone_no": self.phone_no,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"title: {self.title}, "
+            f"name: {self.name}, "
+            f"address1: {self.address1}, "
+            f"address2: {self.address2}, "
+            f"title_city: {self.title_city}, "
+            f"state: {self.state}, "
+            f"zip_code: {self.zip_code}, "
+            f"zip_plus_four: {self.zip_plus_four}, "
+            f"phone_no: {self.phone_no}"
+        )

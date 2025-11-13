@@ -156,3 +156,25 @@ class ARB_BASE(Base):
             "cross_ref": self.cross_ref,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"computer_id: {self.computer_id}, "
+            f"icao_id: {self.icao_id}, "
+            f"location_type: {self.location_type.value if self.location_type else None}, "
+            f"city: {self.city}, "
+            f"state: {self.state}, "
+            f"country_code: {self.country_code}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"cross_ref: {self.cross_ref}"
+        )

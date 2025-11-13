@@ -77,3 +77,12 @@ class ATC_ATIS(Base):
             "atis_phone_no": self.atis_phone_no,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"atis_no: {self.atis_no}, "
+            f"description: {self.description}, "
+            f"atis_hrs: {self.atis_hrs}, "
+            f"atis_phone_no: {self.atis_phone_no}"
+        )

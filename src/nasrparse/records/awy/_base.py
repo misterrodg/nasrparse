@@ -55,3 +55,11 @@ class Base(TableBase):
             "awy_location": self.awy_location.value if self.awy_location else None,
             "awy_id": self.awy_id,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"regulatory: {self.regulatory}, "
+            f"awy_location: {self.awy_location.value if self.awy_location else None}, "
+            f"awy_id: {self.awy_id}, "
+        )

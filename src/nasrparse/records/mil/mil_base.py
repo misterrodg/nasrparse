@@ -56,6 +56,7 @@ class MIL_BASE(Base):
     def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__} ( "
+            f"{super().__repr__()}"
             f"MIL_OPS_OPER_CODE={self.mil_ops_oper_code!r}, "
             f"MIL_OPS_CALL={self.mil_ops_call!r}, "
             f"MIL_OPS_HRS={self.mil_ops_hrs!r}, "
@@ -93,3 +94,14 @@ class MIL_BASE(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"mil_ops_oper_code: {self.mil_ops_oper_code.value if self.mil_ops_oper_code else None}, "
+            f"mil_ops_call: {self.mil_ops_call}, "
+            f"mil_ops_hrs: {self.mil_ops_hrs}, "
+            f"amcp_hrs: {self.amcp_hrs}, "
+            f"pmsv_hrs: {self.pmsv_hrs}, "
+            f"remark: {self.remark}"
+        )

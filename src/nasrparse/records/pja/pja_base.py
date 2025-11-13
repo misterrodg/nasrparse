@@ -240,3 +240,36 @@ class PJA_BASE(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"nav_id: {self.nav_id}, "
+            f"nav_type: {self.nav_type.value if self.nav_type else None}, "
+            f"radial: {self.radial}, "
+            f"distance: {self.distance}, "
+            f"navaid_name: {self.navaid_name}, "
+            f"state_code: {self.state_code}, "
+            f"city: {self.city}, "
+            f"latitude: {self.latitude}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"longitude: {self.longitude}, "
+            f"long_decimal: {self.long_decimal}, "
+            f"arpt_id: {self.arpt_id}, "
+            f"site_no: {self.site_no}, "
+            f"site_type_code: {self.site_type_code.value if self.site_type_code else None}, "
+            f"drop_zone_name: {self.drop_zone_name}, "
+            f"max_altitude: {self.max_altitude}, "
+            f"max_altitude_type_code: {self.max_altitude_type_code.value if self.max_altitude_type_code else None}, "
+            f"pja_radius: {self.pja_radius}, "
+            f"chart_request_flag: {self.chart_request_flag}, "
+            f"publish_criteria: {self.publish_criteria}, "
+            f"description: {self.description}, "
+            f"time_of_use: {self.time_of_use}, "
+            f"fss_id: {self.fss_id}, "
+            f"fss_name: {self.fss_name}, "
+            f"pja_use: {self.pja_use}, "
+            f"volume: {self.volume}, "
+            f"pja_user: {self.pja_user}, "
+            f"remark: {self.remark}"
+        )

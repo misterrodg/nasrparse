@@ -50,3 +50,6 @@ class HPF_CHRT(Base):
             "charting_type_desc": self.charting_type_desc,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return f"{super().to_str()}" f"charting_type_desc: {self.charting_type_desc}"

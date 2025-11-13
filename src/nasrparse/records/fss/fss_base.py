@@ -189,3 +189,27 @@ class FSS_BASE(Base):
             "toll_free_no": self.toll_free_no,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"update_date: {self.update_date.strftime("%Y-%m-%d") if self.update_date else None}, "
+            f"fss_fac_type: {self.fss_fac_type.value if self.fss_fac_type else None}, "
+            f"voice_call: {self.voice_call}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"opr_hours: {self.opr_hours}, "
+            f"fac_status: {self.fac_status}, "
+            f"alternate_fss: {self.alternate_fss}, "
+            f"wea_radar_flag: {self.wea_radar_flag}, "
+            f"phone_no: {self.phone_no}, "
+            f"toll_free_no: {self.toll_free_no}"
+        )

@@ -45,3 +45,10 @@ class Base(TableBase):
             "location_id": self.location_id,
             "location_name": self.location_name,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"location_id: {self.location_id}, "
+            f"location_name: {self.location_name}, "
+        )

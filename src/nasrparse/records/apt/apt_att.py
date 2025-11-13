@@ -75,3 +75,12 @@ class APT_ATT(Base):
             "hour": self.hour,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"sked_seq_no: {self.sked_seq_no}, "
+            f"month: {self.month}, "
+            f"day: {self.day}, "
+            f"hour: {self.hour}"
+        )

@@ -59,3 +59,12 @@ class Base(TableBase):
             "state_code": self.state_code,
             "country_code": self.country_code,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"fix_id: {self.fix_id}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"state_code: {self.state_code}, "
+            f"country_code: {self.country_code}, "
+        )

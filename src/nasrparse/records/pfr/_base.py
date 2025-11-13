@@ -62,3 +62,12 @@ class Base(TableBase):
             "pfr_type_code": self.pfr_type_code.value if self.pfr_type_code else None,
             "route_no": self.route_no,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"origin_id: {self.origin_id}, "
+            f"dstn_id: {self.dstn_id}, "
+            f"pfr_type_code: {self.pfr_type_code.value if self.pfr_type_code else None}, "
+            f"route_no: {self.route_no}, "
+        )

@@ -32,8 +32,8 @@ class MTR_BASE(Base):
         return (
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"
-            f"FSS={self.fss}, "
-            f"TIME_OF_USE={self.time_of_use}"
+            f"FSS={self.fss!r}, "
+            f"TIME_OF_USE={self.time_of_use!r}"
             " )"
         )
 
@@ -55,3 +55,10 @@ class MTR_BASE(Base):
             "time_of_use": self.time_of_use,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"fss: {self.fss}, "
+            f"time_of_use: {self.time_of_use}"
+        )

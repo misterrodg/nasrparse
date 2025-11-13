@@ -72,3 +72,12 @@ class RDR_BASE(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"radar_type: {self.radar_type.value if self.radar_type else None}, "
+            f"radar_no: {self.radar_no}, "
+            f"radar_hrs: {self.radar_hrs}, "
+            f"remark: {self.remark}"
+        )

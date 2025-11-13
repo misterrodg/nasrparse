@@ -62,6 +62,7 @@ class PFR_RMT_FMT(TableBase):
         self.acntr = to_nullable_string(acntr)
 
     def __repr__(self) -> str:
+        # This intentionally does not import `super()`
         return (
             f"{self.__class__.__name__} ( "
             f"ORIG={self.orig!r}, "
@@ -80,6 +81,7 @@ class PFR_RMT_FMT(TableBase):
         )
 
     def ordered_fields(self) -> list:
+        # This intentionally does not import `super()`
         return [
             "orig",
             "route_string",
@@ -96,6 +98,7 @@ class PFR_RMT_FMT(TableBase):
         ]
 
     def to_dict(self) -> dict:
+        # This intentionally does not import `super()`
         return {
             "orig": self.orig,
             "route_string": self.route_string,
@@ -110,3 +113,20 @@ class PFR_RMT_FMT(TableBase):
             "dcntr": self.dcntr,
             "acntr": self.acntr,
         }
+
+    def to_str(self) -> str:
+        # This intentionally does not import `super()`
+        return (
+            f"orig: {self.orig}, "
+            f"route_string: {self.route_string}, "
+            f"dest: {self.dest}, "
+            f"hours1: {self.hours1}, "
+            f"type: {self.type.value if self.type else None}, "
+            f"area: {self.area}, "
+            f"altitude: {self.altitude}, "
+            f"aircraft: {self.aircraft}, "
+            f"direction: {self.direction}, "
+            f"seq: {self.seq}, "
+            f"dcntr: {self.dcntr}, "
+            f"acntr: {self.acntr}"
+        )

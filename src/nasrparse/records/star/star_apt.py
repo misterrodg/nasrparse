@@ -1,4 +1,4 @@
-from nasrparse.functions import to_nullable_bool, to_nullable_date, to_nullable_string
+from nasrparse.functions import to_nullable_int, to_nullable_string
 
 from ._base import Base
 
@@ -6,7 +6,7 @@ from ._base import Base
 class STAR_APT(Base):
     body_name: str | None
     """The Name of the Body for which the Airport/Runway End are associated. The Body Name is the first and last Fix of the Segment."""
-    body_seq: str | None
+    body_seq: int | None
     """In the rare case that Body Name is not Unique for a given STAR, the BODY_SEQ will uniquely identify the Segment."""
     arpt_id: str | None
     """The associated Airport Identifier."""
@@ -30,7 +30,7 @@ class STAR_APT(Base):
             artcc,
         )
         self.body_name = to_nullable_string(body_name)
-        self.body_seq = to_nullable_string(body_seq)
+        self.body_seq = to_nullable_int(body_seq)
         self.arpt_id = to_nullable_string(arpt_id)
         self.rwy_end_id = to_nullable_string(rwy_end_id)
 
@@ -67,3 +67,12 @@ class STAR_APT(Base):
             "rwy_end_id": self.rwy_end_id,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"body_name: {self.body_name}, "
+            f"body_seq: {self.body_seq}, "
+            f"arpt_id: {self.arpt_id}, "
+            f"rwy_end_id: {self.rwy_end_id}"
+        )

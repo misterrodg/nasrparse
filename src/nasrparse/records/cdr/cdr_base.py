@@ -98,3 +98,16 @@ class CDR_BASE(Base):
             "length": self.length,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"route_string: {self.route_string}, "
+            f"dcntr: {self.dcntr}, "
+            f"acntr: {self.acntr}, "
+            f"tcntrs: {self.tcntrs}, "
+            f"coordreq: {self.coordreq}, "
+            f"play: {self.play}, "
+            f"naveqp: {self.naveqp.value if self.naveqp else None}, "
+            f"length: {self.length}"
+        )

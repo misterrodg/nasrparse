@@ -52,3 +52,11 @@ class Base(TableBase):
             "fac_name": self.fac_name,
             "facility_type": self.facility_type,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"facility: {self.facility}, "
+            f"fac_name: {self.fac_name}, "
+            f"facility_type: {self.facility_type}, "
+        )

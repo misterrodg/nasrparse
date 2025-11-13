@@ -86,3 +86,15 @@ class MAA_CON(Base):
             "mil_chart_flag": self.mil_chart_flag,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"freq_seq: {self.freq_seq}, "
+            f"fac_id: {self.fac_id}, "
+            f"fac_name: {self.fac_name}, "
+            f"commercial_freq: {self.commercial_freq}, "
+            f"commercial_chart_flag: {self.commercial_chart_flag}, "
+            f"mil_freq: {self.mil_freq}, "
+            f"mil_chart_flag: {self.mil_chart_flag}"
+        )

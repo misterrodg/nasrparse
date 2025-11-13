@@ -124,7 +124,7 @@ class AWY_ALT(Base):
         self.icao_region_code = to_nullable_string(icao_region_code)
         self.state_code = to_nullable_string(state_code)
         self.country_code = to_nullable_string(country_code)
-        self.next_mea_pt = to_nullable_int(next_mea_pt)
+        self.next_mea_pt = to_nullable_string(next_mea_pt)
         self.min_enroute_alt = to_nullable_int(min_enroute_alt)
         self.min_enroute_alt_dir = to_nullable_string(min_enroute_alt_dir)
         self.min_enroute_alt_opposite = to_nullable_int(min_enroute_alt_opposite)
@@ -188,7 +188,7 @@ class AWY_ALT(Base):
             f"MAX_AUTH_ALT={self.max_auth_alt!r}, "
             f"MEA_GAP={self.mea_gap!r}, "
             f"REQD_NAV_PERFORMANCE={self.reqd_nav_performance!r}, "
-            f"REMARK={self.remark!r}, "
+            f"REMARK={self.remark!r}"
             " )"
         )
 
@@ -270,3 +270,40 @@ class AWY_ALT(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"point_seq: {self.point_seq}, "
+            f"mea_pt: {self.mea_pt}, "
+            f"mea_pt_type: {self.mea_pt_type.value if self.mea_pt_type else None}, "
+            f"nav_name: {self.nav_name}, "
+            f"nav_city: {self.nav_city}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"state_code: {self.state_code}, "
+            f"country_code: {self.country_code}, "
+            f"next_mea_pt: {self.next_mea_pt}, "
+            f"min_enroute_alt: {self.min_enroute_alt}, "
+            f"min_enroute_alt_dir: {self.min_enroute_alt_dir}, "
+            f"min_enroute_alt_opposite: {self.min_enroute_alt_opposite}, "
+            f"min_enroute_alt_opposite_dir: {self.min_enroute_alt_opposite_dir}, "
+            f"gps_min_enroute_alt: {self.gps_min_enroute_alt}, "
+            f"gps_min_enroute_alt_dir: {self.gps_min_enroute_alt_dir}, "
+            f"gps_min_enroute_alt_opposite: {self.gps_min_enroute_alt_opposite}, "
+            f"gps_mea_opposite_dir: {self.gps_mea_opposite_dir}, "
+            f"dd_iru_mea: {self.dd_iru_mea}, "
+            f"dd_iru_mea_dir: {self.dd_iru_mea_dir}, "
+            f"dd_i_mea_opposite: {self.dd_i_mea_opposite}, "
+            f"dd_i_mea_opposite_dir: {self.dd_i_mea_opposite_dir}, "
+            f"min_obstn_clnc_alt: {self.min_obstn_clnc_alt}, "
+            f"min_cross_alt: {self.min_cross_alt}, "
+            f"min_cross_alt_dir: {self.min_cross_alt_dir}, "
+            f"min_cross_alt_nav_pt: {self.min_cross_alt_nav_pt}, "
+            f"min_cross_alt_opposite: {self.min_cross_alt_opposite}, "
+            f"min_cross_alt_opposite_dir: {self.min_cross_alt_opposite_dir}, "
+            f"min_recep_alt: {self.min_recep_alt}, "
+            f"max_auth_alt: {self.max_auth_alt}, "
+            f"mea_gap: {self.mea_gap}, "
+            f"reqd_nav_performance: {self.reqd_nav_performance}, "
+            f"remark: {self.remark}"
+        )

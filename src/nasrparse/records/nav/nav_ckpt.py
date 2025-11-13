@@ -88,3 +88,14 @@ class NAV_CKPT(Base):
             "state_chk_code": self.state_chk_code,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"altitude: {self.altitude}, "
+            f"brg: {self.brg}, "
+            f"air_gnd_code: {self.air_gnd_code.value if self.air_gnd_code else None}, "
+            f"chk_desc: {self.chk_desc}, "
+            f"arpt_id: {self.arpt_id}, "
+            f"state_chk_code: {self.state_chk_code}"
+        )

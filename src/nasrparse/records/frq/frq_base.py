@@ -162,3 +162,25 @@ class FRQ_BASE(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"artcc_or_fss_id: {self.artcc_or_fss_id}, "
+            f"cpdlc: {self.cpdlc}, "
+            f"tower_hrs: {self.tower_hrs}, "
+            f"serviced_facility: {self.serviced_facility}, "
+            f"serviced_fac_name: {self.serviced_fac_name}, "
+            f"serviced_site_type: {self.serviced_site_type}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"serviced_city: {self.serviced_city}, "
+            f"serviced_state: {self.serviced_state}, "
+            f"serviced_country: {self.serviced_country}, "
+            f"tower_or_comm_call: {self.tower_or_comm_call}, "
+            f"primary_approach_radio_call: {self.primary_approach_radio_call}, "
+            f"freq: {self.freq}, "
+            f"sectorization: {self.sectorization}, "
+            f"freq_use: {self.freq_use}, "
+            f"remark: {self.remark}"
+        )

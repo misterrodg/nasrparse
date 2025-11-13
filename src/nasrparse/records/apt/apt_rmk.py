@@ -59,7 +59,7 @@ class APT_RMK(Base):
             f"REF_COL_NAME={self.ref_col_name!r}, "
             f"ELEMENT={self.element!r}, "
             f"REF_COL_SEQ_NO={self.ref_col_seq_no!r}, "
-            f"REMARK={self.remark!r}, "
+            f"REMARK={self.remark!r}"
             " )"
         )
 
@@ -89,3 +89,14 @@ class APT_RMK(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"legacy_element_number: {self.legacy_element_number}, "
+            f"tab_name: {self.tab_name}, "
+            f"ref_col_name: {self.ref_col_name}, "
+            f"element: {self.element}, "
+            f"ref_col_seq_no: {self.ref_col_seq_no}, "
+            f"remark: {self.remark}"
+        )

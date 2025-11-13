@@ -262,3 +262,34 @@ class ILS_BASE(Base):
             ),
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"state_name: {self.state_name}, "
+            f"region_code: {self.region_code.value if self.region_code else None}, "
+            f"rwy_len: {self.rwy_len}, "
+            f"rwy_width: {self.rwy_width}, "
+            f"category: {self.category}, "
+            f"owner: {self.owner}, "
+            f"operator: {self.operator}, "
+            f"apch_bear: {self.apch_bear}, "
+            f"mag_var: {self.mag_var}, "
+            f"mag_var_hemis: {self.mag_var_hemis.value if self.mag_var_hemis else None}, "
+            f"component_status: {self.component_status}, "
+            f"component_status_date: {self.component_status_date.strftime("%Y-%m-%d") if self.component_status_date else None}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"lat_lon_source_code: {self.lat_lon_source_code.value if self.lat_lon_source_code else None}, "
+            f"site_elevation: {self.site_elevation}, "
+            f"loc_freq: {self.loc_freq}, "
+            f"bk_course_status_code: {self.bk_course_status_code.value if self.bk_course_status_code else None}"
+        )

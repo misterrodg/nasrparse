@@ -238,3 +238,30 @@ class ILS_MKR(Base):
             "low_powered_ndb_status": self.low_powered_ndb_status,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"ils_comp_type_code: {self.ils_comp_type_code.value if self.ils_comp_type_code else None}, "
+            f"component_status: {self.component_status}, "
+            f"component_status_date: {self.component_status_date.strftime("%Y-%m-%d") if self.component_status_date else None}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"lat_lon_source_code: {self.lat_lon_source_code.value if self.lat_lon_source_code else None}, "
+            f"site_elevation: {self.site_elevation}, "
+            f"mkr_fac_type_code: {self.mkr_fac_type_code.value if self.mkr_fac_type_code else None}, "
+            f"marker_id_beacon: {self.marker_id_beacon}, "
+            f"compass_locator_name: {self.compass_locator_name}, "
+            f"freq: {self.freq}, "
+            f"nav_id: {self.nav_id}, "
+            f"nav_type: {self.nav_type}, "
+            f"low_powered_ndb_status: {self.low_powered_ndb_status}"
+        )

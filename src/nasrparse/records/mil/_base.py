@@ -78,3 +78,14 @@ class Base(TableBase):
             "city": self.city,
             "country_code": self.country_code,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"site_no: {self.site_no}, "
+            f"site_type_code: {self.site_type_code.value if self.site_type_code else None}, "
+            f"state_code: {self.state_code}, "
+            f"arpt_id: {self.arpt_id}, "
+            f"city: {self.city}, "
+            f"country_code: {self.country_code}, "
+        )

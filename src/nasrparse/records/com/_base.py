@@ -90,3 +90,16 @@ class Base(TableBase):
             "region_code": self.region_code.value if self.region_code else None,
             "country_code": self.country_code,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"comm_loc_id: {self.comm_loc_id}, "
+            f"comm_type: {self.comm_type.value if self.comm_type else None}, "
+            f"nav_id: {self.nav_id}, "
+            f"nav_type: {self.nav_type.value if self.nav_type else None}, "
+            f"city: {self.city}, "
+            f"state_code: {self.state_code}, "
+            f"region_code: {self.region_code.value if self.region_code else None}, "
+            f"country_code: {self.country_code}, "
+        )

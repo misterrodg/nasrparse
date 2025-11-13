@@ -196,3 +196,29 @@ class FIX_BASE(Base):
             "charts": self.charts,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"fix_id_old: {self.fix_id_old}, "
+            f"charting_remark: {self.charting_remark}, "
+            f"fix_use_code: {self.fix_use_code.value if self.fix_use_code else None}, "
+            f"artcc_id_high: {self.artcc_id_high}, "
+            f"artcc_id_low: {self.artcc_id_low}, "
+            f"pitch_flag: {self.pitch_flag}, "
+            f"catch_flag: {self.catch_flag}, "
+            f"sua_atcaa_flag: {self.sua_atcaa_flag}, "
+            f"min_recep_alt: {self.min_recep_alt}, "
+            f"compulsory: {self.compulsory}, "
+            f"charts: {self.charts}"
+        )

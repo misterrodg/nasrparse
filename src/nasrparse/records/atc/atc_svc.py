@@ -56,3 +56,6 @@ class ATC_SVC(Base):
             "ctl_svc": self.ctl_svc,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return f"{super().to_str()}" f"ctl_svc: {self.ctl_svc}"

@@ -80,3 +80,13 @@ class STAR_BASE(Base):
             "served_arpt": self.served_arpt,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"arrival_name: {self.arrival_name}, "
+            f"amendment_no: {self.amendment_no}, "
+            f"star_amend_eff_date: {self.star_amend_eff_date.strftime("%Y-%m-%d") if self.star_amend_eff_date else None}, "
+            f"rnav_flag: {self.rnav_flag}, "
+            f"served_arpt: {self.served_arpt}"
+        )

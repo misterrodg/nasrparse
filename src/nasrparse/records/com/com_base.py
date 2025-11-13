@@ -36,6 +36,8 @@ class COM_BASE(Base):
     """Communications Outlet Longitude in Decimal Format"""
     facility_id: str | None
     """For RCO and RCO1, the Facility ID is the Associated Flight Service Station Ident. For RCAG, the Facility ID is the Associated ARTCC. FACILITY_NAME - For RCO and RCO1, the Facility Name is the Associated Flight Service Station Name. For RCAG, the Facility Name is the Associated ARTCC Name."""
+    facility_name: str | None
+    """For RCO and RCO1, the Facility Name is the Associated Flight Service Station Name. For RCAG, the Facility Name is the Associated ARTCC Name."""
     alt_fss_id: str | None
     """Associated Alternate Flight Service Station Ident - Applies to RCO/RCO1 types only."""
     alt_fss_name: str | None
@@ -72,6 +74,7 @@ class COM_BASE(Base):
         lon_hemis: str,
         lon_decimal: str,
         facility_id: str,
+        facility_name: str,
         alt_fss_id: str,
         alt_fss_name: str,
         opr_hrs: str,
@@ -103,6 +106,7 @@ class COM_BASE(Base):
         self.lon_hemis = HemisCode.from_value(to_nullable_string(lon_hemis))
         self.lon_decimal = to_nullable_float(lon_decimal)
         self.facility_id = to_nullable_string(facility_id)
+        self.facility_name = to_nullable_string(facility_name)
         self.alt_fss_id = to_nullable_string(alt_fss_id)
         self.alt_fss_name = to_nullable_string(alt_fss_name)
         self.opr_hrs = to_nullable_string(opr_hrs)
@@ -128,6 +132,7 @@ class COM_BASE(Base):
             f"LON_HEMIS={self.lon_hemis!r}, "
             f"LON_DECIMAL={self.lon_decimal!r}, "
             f"FACILITY_ID={self.facility_id!r}, "
+            f"FACILITY_NAME={self.facility_name!r}, "
             f"ALT_FSS_ID={self.alt_fss_id!r}, "
             f"ALT_FSS_NAME={self.alt_fss_name!r}, "
             f"OPR_HRS={self.opr_hrs!r}, "
@@ -154,6 +159,7 @@ class COM_BASE(Base):
                 "lon_hemis",
                 "lon_decimal",
                 "facility_id",
+                "facility_name",
                 "alt_fss_id",
                 "alt_fss_name",
                 "opr_hrs",
@@ -179,6 +185,7 @@ class COM_BASE(Base):
             "lon_hemis": self.lon_hemis.value if self.lon_hemis else None,
             "lon_decimal": self.lon_decimal,
             "facility_id": self.facility_id,
+            "facility_name": self.facility_name,
             "alt_fss_id": self.alt_fss_id,
             "alt_fss_name": self.alt_fss_name,
             "opr_hrs": self.opr_hrs,
@@ -193,3 +200,27 @@ class COM_BASE(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"comm_outlet_name: {self.comm_outlet_name}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"facility_id: {self.facility_id}, "
+            f"facility_name: {self.facility_name}, "
+            f"alt_fss_id: {self.alt_fss_id}, "
+            f"alt_fss_name: {self.alt_fss_name}, "
+            f"opr_hrs: {self.opr_hrs}, "
+            f"comm_status_code: {self.comm_status_code.value if self.comm_status_code else None}, "
+            f"comm_status_date: {self.comm_status_date.strftime("%Y-%m-%d") if self.comm_status_date else None}, "
+            f"remark: {self.remark}"
+        )

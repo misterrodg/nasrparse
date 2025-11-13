@@ -179,3 +179,27 @@ class AWY_SEG(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"point_seq: {self.point_seq}, "
+            f"seg_value: {self.seg_value}, "
+            f"seg_type: {self.seg_type}, "
+            f"nav_name: {self.nav_name}, "
+            f"nav_city: {self.nav_city}, "
+            f"icao_region_code: {self.icao_region_code}, "
+            f"state_code: {self.state_code}, "
+            f"country_code: {self.country_code}, "
+            f"next_seg: {self.next_seg}, "
+            f"mag_course: {self.mag_course}, "
+            f"opp_mag_course: {self.opp_mag_course}, "
+            f"mag_course_dist: {self.mag_course_dist}, "
+            f"chgovr_pt: {self.chgovr_pt}, "
+            f"chgovr_pt_name: {self.chgovr_pt_name}, "
+            f"chgovr_pt_dist: {self.chgovr_pt_dist}, "
+            f"awy_seg_gap_flag: {self.awy_seg_gap_flag}, "
+            f"signal_gap_flag: {self.signal_gap_flag}, "
+            f"dogleg: {self.dogleg}, "
+            f"remark: {self.remark}"
+        )

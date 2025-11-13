@@ -358,6 +358,8 @@ class APTs:
                     rwy_end_dspl_thr_psn_date=row["RWY_END_DSPL_THR_PSN_DATE"],
                     dspl_thr_elev_source=row["DSPL_THR_ELEV_SOURCE"],
                     rwy_end_dspl_thr_elev_date=row["RWY_END_DSPL_THR_ELEV_DATE"],
+                    tdz_elev_source=row["TDZ_ELEV_SOURCE"],
+                    rwy_end_tdz_elev_date=["RWY_END_TDZ_ELEV_DATE"],
                     tkof_run_avbl=row["TKOF_RUN_AVBL"],
                     tkof_dist_avbl=row["TKOF_DIST_AVBL"],
                     aclt_stop_dist_avbl=row["ACLT_STOP_DIST_AVBL"],

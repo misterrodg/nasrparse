@@ -66,3 +66,13 @@ class Base(TableBase):
             "city": self.city,
             "country_code": self.country_code,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"asos_awos_id: {self.asos_awos_id}, "
+            f"asos_awos_type: {self.asos_awos_type}, "
+            f"state_code: {self.state_code}, "
+            f"city: {self.city}, "
+            f"country_code: {self.country_code}, "
+        )

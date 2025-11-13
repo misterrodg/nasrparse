@@ -73,3 +73,11 @@ class APT_ARS(Base):
             ),
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"rwy_id: {self.rwy_id}, "
+            f"rwy_end_id: {self.rwy_end_id}, "
+            f"arrest_device_code: {self.arrest_device_code.value if self.arrest_device_code else None}"
+        )

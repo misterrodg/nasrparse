@@ -35,7 +35,7 @@ class HPF_SPD_ALT(Base):
             f"{self.__class__.__name__} ( "
             f"{super().__repr__()}"
             f"SPEED_RANGE={self.speed_range!r}, "
-            f"ALTITUDE={self.altitude!r}, "
+            f"ALTITUDE={self.altitude!r}"
             " )"
         )
 
@@ -57,3 +57,10 @@ class HPF_SPD_ALT(Base):
             "altitude": self.altitude,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"speed_range: {self.speed_range}, "
+            f"altitude: {self.altitude}"
+        )

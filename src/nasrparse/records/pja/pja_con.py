@@ -16,7 +16,7 @@ class PJA_CON(Base):
     """Commercial Chart Flag"""
     mil_freq: str | None
     """Military Frequency"""
-    mil_chart_flag: str | None
+    mil_chart_flag: bool | None
     """Military Chart Flag"""
     sector: str | None
     """Sector Description Text"""
@@ -44,7 +44,7 @@ class PJA_CON(Base):
         self.commercial_freq = to_nullable_string(commercial_freq)
         self.commercial_chart_flag = to_nullable_bool(commercial_chart_flag)
         self.mil_freq = to_nullable_string(mil_freq)
-        self.mil_chart_flag = to_nullable_string(mil_chart_flag)
+        self.mil_chart_flag = to_nullable_bool(mil_chart_flag)
         self.sector = to_nullable_string(sector)
         self.contact_freq_altitude = to_nullable_string(contact_freq_altitude)
 
@@ -96,3 +96,17 @@ class PJA_CON(Base):
             "contact_freq_altitude": self.contact_freq_altitude,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"fac_id: {self.fac_id}, "
+            f"fac_name: {self.fac_name}, "
+            f"loc_id: {self.loc_id}, "
+            f"commercial_freq: {self.commercial_freq}, "
+            f"commercial_chart_flag: {self.commercial_chart_flag}, "
+            f"mil_freq: {self.mil_freq}, "
+            f"mil_chart_flag: {self.mil_chart_flag}, "
+            f"sector: {self.sector}, "
+            f"contact_freq_altitude: {self.contact_freq_altitude}"
+        )

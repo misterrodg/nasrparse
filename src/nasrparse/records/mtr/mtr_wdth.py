@@ -1,10 +1,10 @@
-from nasrparse.functions import to_nullable_string
+from nasrparse.functions import to_nullable_int, to_nullable_string
 
 from ._base import Base
 
 
 class MTR_WDTH(Base):
-    width_seq_no: str | None
+    width_seq_no: int | None
     """WIDTH Text Computer assigned Sequence Number"""
     width_text: str | None
     """Route Width Description Text"""
@@ -25,7 +25,7 @@ class MTR_WDTH(Base):
             route_id,
             artcc,
         )
-        self.width_seq_no = to_nullable_string(width_seq_no)
+        self.width_seq_no = to_nullable_int(width_seq_no)
         self.width_text = to_nullable_string(width_text)
 
     def __repr__(self) -> str:
@@ -55,3 +55,10 @@ class MTR_WDTH(Base):
             "width_text": self.width_text,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"width_seq_no: {self.width_seq_no}, "
+            f"width_text: {self.width_text}"
+        )

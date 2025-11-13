@@ -39,7 +39,7 @@ class Base(TableBase):
             f"WEA_ID={self.wea_id!r}, "
             f"CITY={self.city!r}, "
             f"STATE_CODE={self.state_code!r}, "
-            f"COUNTRY_CODE={self.country_code!r}"
+            f"COUNTRY_CODE={self.country_code!r}, "
         )
 
     def ordered_fields(self) -> list:
@@ -59,3 +59,12 @@ class Base(TableBase):
             "state_code": self.state_code,
             "country_code": self.country_code,
         }
+
+    def to_str(self) -> str:
+        return (
+            f"eff_date: {self.eff_date.strftime("%Y-%m-%d") if self.eff_date else None}, "
+            f"wea_id: {self.wea_id}, "
+            f"city: {self.city}, "
+            f"state_code: {self.state_code}, "
+            f"country_code: {self.country_code}, "
+        )

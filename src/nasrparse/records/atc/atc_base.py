@@ -228,3 +228,30 @@ class ATC_BASE(Base):
             "secondary_ctl_prvding_hrs": self.secondary_ctl_prvding_hrs,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"icao_id: {self.icao_id}, "
+            f"facility_name: {self.facility_name}, "
+            f"region_code: {self.region_code.value if self.region_code else None}, "
+            f"twr_operator_code: {self.twr_operator_code.value if self.twr_operator_code else None}, "
+            f"twr_call: {self.twr_call}, "
+            f"twr_hrs: {self.twr_hrs}, "
+            f"primary_apch_radio_call: {self.primary_apch_radio_call}, "
+            f"apch_p_provider: {self.apch_p_provider}, "
+            f"apch_p_prov_type_cd: {self.apch_p_prov_type_cd.value if self.apch_p_prov_type_cd else None}, "
+            f"secondary_apch_radio_call: {self.secondary_apch_radio_call}, "
+            f"apch_s_provider: {self.apch_s_provider}, "
+            f"apch_s_prov_type_cd: {self.apch_s_prov_type_cd.value if self.dep_s_prov_type_cd else None}, "
+            f"primary_dep_radio_call: {self.primary_dep_radio_call}, "
+            f"dep_p_provider: {self.dep_p_provider}, "
+            f"dep_p_prov_type_cd: {self.dep_p_prov_type_cd.value if self.dep_p_prov_type_cd else None}, "
+            f"secondary_dep_radio_call: {self.secondary_dep_radio_call}, "
+            f"dep_s_provider: {self.dep_s_provider}, "
+            f"dep_s_prov_type_cd: {self.dep_s_prov_type_cd.value if self.dep_s_prov_type_cd else None}, "
+            f"ctl_fac_apch_dep_calls: {self.ctl_fac_apch_dep_calls}, "
+            f"apch_dep_oper_code: {self.apch_dep_oper_code.value if self.apch_dep_oper_code else None}, "
+            f"ctl_prvding_hrs: {self.ctl_prvding_hrs}, "
+            f"secondary_ctl_prvding_hrs: {self.secondary_ctl_prvding_hrs}"
+        )

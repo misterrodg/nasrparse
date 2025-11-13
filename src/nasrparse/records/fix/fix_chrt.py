@@ -44,3 +44,6 @@ class FIX_CHRT(Base):
         base_dict = super().to_dict()
         this_dict = {"charting_type_desc": self.charting_type_desc}
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return f"{super().to_str()}" f"charting_type_desc: {self.charting_type_desc}"

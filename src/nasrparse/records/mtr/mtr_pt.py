@@ -161,3 +161,25 @@ class MTR_PT(Base):
             "navaid_dist": self.navaid_dist,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"route_pt_seq: {self.route_pt_seq}, "
+            f"route_pt_id: {self.route_pt_id}, "
+            f"next_route_pt_id: {self.next_route_pt_id}, "
+            f"segment_text: {self.segment_text}, "
+            f"lat_deg: {self.lat_deg}, "
+            f"lat_min: {self.lat_min}, "
+            f"lat_sec: {self.lat_sec}, "
+            f"lat_hemis: {self.lat_hemis.value if self.lat_hemis else None}, "
+            f"lat_decimal: {self.lat_decimal}, "
+            f"lon_deg: {self.lon_deg}, "
+            f"lon_min: {self.lon_min}, "
+            f"lon_sec: {self.lon_sec}, "
+            f"lon_hemis: {self.lon_hemis.value if self.lon_hemis else None}, "
+            f"lon_decimal: {self.lon_decimal}, "
+            f"nav_id: {self.nav_id}, "
+            f"navaid_bearing: {self.navaid_bearing}, "
+            f"navaid_dist: {self.navaid_dist}"
+        )

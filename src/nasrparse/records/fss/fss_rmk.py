@@ -42,7 +42,7 @@ class FSS_RMK(Base):
             f"{super().__repr__()}"
             f"REF_COL_NAME={self.ref_col_name!r}, "
             f"REF_COL_SEQ_NO={self.ref_col_seq_no!r}, "
-            f"REMARK={self.remark!r}, "
+            f"REMARK={self.remark!r}"
             " )"
         )
 
@@ -66,3 +66,11 @@ class FSS_RMK(Base):
             "remark": self.remark,
         }
         return {**base_dict, **this_dict}
+
+    def to_str(self) -> str:
+        return (
+            f"{super().to_str()}"
+            f"ref_col_name: {self.ref_col_name}, "
+            f"ref_col_seq_no: {self.ref_col_seq_no}, "
+            f"remark: {self.remark}"
+        )
