@@ -32,18 +32,18 @@ class LIDs:
 
             for row in reader:
                 record = LID_BASE(
-                    eff_date=row["EFF_DATE"],
-                    country_code=row["COUNTRY_CODE"],
-                    loc_id=row["LOC_ID"],
-                    region_code=row["REGION_CODE"],
-                    state_code=row["STATE"],
-                    city=row["CITY"],
-                    lid_group=row["LID_GROUP"],
-                    fac_type=row["FAC_TYPE"],
-                    fac_name=row["FAC_NAME"],
-                    resp_artcc_id=row["RESP_ARTCC_ID"],
-                    artcc_computer_id=row["ARTCC_COMPUTER_ID"],
-                    fss_id=row["FSS_ID"],
+                    eff_date=row.get("EFF_DATE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    loc_id=row.get("LOC_ID"),
+                    region_code=row.get("REGION_CODE"),
+                    state_code=row.get("STATE"),
+                    city=row.get("CITY"),
+                    lid_group=row.get("LID_GROUP"),
+                    fac_type=row.get("FAC_TYPE"),
+                    fac_name=row.get("FAC_NAME"),
+                    resp_artcc_id=row.get("RESP_ARTCC_ID"),
+                    artcc_computer_id=row.get("ARTCC_COMPUTER_ID"),
+                    fss_id=row.get("FSS_ID"),
                 )
                 self.lid_base.append(record)
 

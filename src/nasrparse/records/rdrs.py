@@ -32,15 +32,15 @@ class RDRs:
 
             for row in reader:
                 record = RDR_BASE(
-                    eff_date=row["EFF_DATE"],
-                    facility_id=row["FACILITY_ID"],
-                    facility_type=row["FACILITY_TYPE"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    radar_type=row["RADAR_TYPE"],
-                    radar_no=row["RADAR_NO"],
-                    radar_hrs=row["RADAR_HRS"],
-                    remark=row["REMARK"],
+                    eff_date=row.get("EFF_DATE"),
+                    facility_id=row.get("FACILITY_ID"),
+                    facility_type=row.get("FACILITY_TYPE"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    radar_type=row.get("RADAR_TYPE"),
+                    radar_no=row.get("RADAR_NO"),
+                    radar_hrs=row.get("RADAR_HRS"),
+                    remark=row.get("REMARK"),
                 )
                 self.rdr_base.append(record)
 

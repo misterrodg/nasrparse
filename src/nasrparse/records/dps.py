@@ -38,14 +38,14 @@ class DPs:
 
             for row in reader:
                 record = DP_APT(
-                    eff_date=row["EFF_DATE"],
-                    dp_computer_code=row["DP_COMPUTER_CODE"],
-                    dp_name=row["DP_NAME"],
-                    artcc=row["ARTCC"],
-                    body_name=row["BODY_NAME"],
-                    body_seq=row["BODY_SEQ"],
-                    arpt_id=row["ARPT_ID"],
-                    rwy_end_id=row["RWY_END_ID"],
+                    eff_date=row.get("EFF_DATE"),
+                    dp_computer_code=row.get("DP_COMPUTER_CODE"),
+                    dp_name=row.get("DP_NAME"),
+                    artcc=row.get("ARTCC"),
+                    body_name=row.get("BODY_NAME"),
+                    body_seq=row.get("BODY_SEQ"),
+                    arpt_id=row.get("ARPT_ID"),
+                    rwy_end_id=row.get("RWY_END_ID"),
                 )
                 self.dp_apt.append(record)
 
@@ -59,15 +59,15 @@ class DPs:
 
             for row in reader:
                 record = DP_BASE(
-                    eff_date=row["EFF_DATE"],
-                    dp_computer_code=row["DP_COMPUTER_CODE"],
-                    dp_name=row["DP_NAME"],
-                    artcc=row["ARTCC"],
-                    amendment_no=row["AMENDMENT_NO"],
-                    dp_amend_eff_date=row["DP_AMEND_EFF_DATE"],
-                    rnav_flag=row["RNAV_FLAG"],
-                    graphical_dp_type=row["GRAPHICAL_DP_TYPE"],
-                    served_arpt=row["SERVED_ARPT"],
+                    eff_date=row.get("EFF_DATE"),
+                    dp_computer_code=row.get("DP_COMPUTER_CODE"),
+                    dp_name=row.get("DP_NAME"),
+                    artcc=row.get("ARTCC"),
+                    amendment_no=row.get("AMENDMENT_NO"),
+                    dp_amend_eff_date=row.get("DP_AMEND_EFF_DATE"),
+                    rnav_flag=row.get("RNAV_FLAG"),
+                    graphical_dp_type=row.get("GRAPHICAL_DP_TYPE"),
+                    served_arpt=row.get("SERVED_ARPT"),
                 )
                 self.dp_base.append(record)
 
@@ -81,20 +81,20 @@ class DPs:
 
             for row in reader:
                 record = DP_RTE(
-                    eff_date=row["EFF_DATE"],
-                    dp_computer_code=row["DP_COMPUTER_CODE"],
-                    dp_name=row["DP_NAME"],
-                    artcc=row["ARTCC"],
-                    route_portion_type=row["ROUTE_PORTION_TYPE"],
-                    route_name=row["ROUTE_NAME"],
-                    body_seq=row["BODY_SEQ"],
-                    transition_computer_code=row["TRANSITION_COMPUTER_CODE"],
-                    point_seq=row["POINT_SEQ"],
-                    point=row["POINT"],
-                    icao_region_code=row["ICAO_REGION_CODE"],
-                    point_type=row["POINT_TYPE"],
-                    next_point=row["NEXT_POINT"],
-                    arpt_rwy_assoc=row["ARPT_RWY_ASSOC"],
+                    eff_date=row.get("EFF_DATE"),
+                    dp_computer_code=row.get("DP_COMPUTER_CODE"),
+                    dp_name=row.get("DP_NAME"),
+                    artcc=row.get("ARTCC"),
+                    route_portion_type=row.get("ROUTE_PORTION_TYPE"),
+                    route_name=row.get("ROUTE_NAME"),
+                    body_seq=row.get("BODY_SEQ"),
+                    transition_computer_code=row.get("TRANSITION_COMPUTER_CODE"),
+                    point_seq=row.get("POINT_SEQ"),
+                    point=row.get("POINT"),
+                    icao_region_code=row.get("ICAO_REGION_CODE"),
+                    point_type=row.get("POINT_TYPE"),
+                    next_point=row.get("NEXT_POINT"),
+                    arpt_rwy_assoc=row.get("ARPT_RWY_ASSOC"),
                 )
                 self.dp_rte.append(record)
 

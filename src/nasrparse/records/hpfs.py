@@ -41,21 +41,21 @@ class HPFs:
 
             for row in reader:
                 record = HPF_BASE(
-                    eff_date=row["EFF_DATE"],
-                    hp_name=row["HP_NAME"],
-                    hp_no=row["HP_NO"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    fix_id=row["FIX_ID"],
-                    icao_region_code=row["ICAO_REGION_CODE"],
-                    nav_id=row["NAV_ID"],
-                    nav_type=row["NAV_TYPE"],
-                    hold_direction=row["HOLD_DIRECTION"],
-                    hold_deg_or_crs=row["HOLD_DEG_OR_CRS"],
-                    azimuth=row["AZIMUTH"],
-                    course_inbound_deg=row["COURSE_INBOUND_DEG"],
-                    turn_direction=row["TURN_DIRECTION"],
-                    leg_length_dist=row["LEG_LENGTH_DIST"],
+                    eff_date=row.get("EFF_DATE"),
+                    hp_name=row.get("HP_NAME"),
+                    hp_no=row.get("HP_NO"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    fix_id=row.get("FIX_ID"),
+                    icao_region_code=row.get("ICAO_REGION_CODE"),
+                    nav_id=row.get("NAV_ID"),
+                    nav_type=row.get("NAV_TYPE"),
+                    hold_direction=row.get("HOLD_DIRECTION"),
+                    hold_deg_or_crs=row.get("HOLD_DEG_OR_CRS"),
+                    azimuth=row.get("AZIMUTH"),
+                    course_inbound_deg=row.get("COURSE_INBOUND_DEG"),
+                    turn_direction=row.get("TURN_DIRECTION"),
+                    leg_length_dist=row.get("LEG_LENGTH_DIST"),
                 )
                 self.hpf_base.append(record)
 
@@ -69,12 +69,12 @@ class HPFs:
 
             for row in reader:
                 record = HPF_CHRT(
-                    eff_date=row["EFF_DATE"],
-                    hp_name=row["HP_NAME"],
-                    hp_no=row["HP_NO"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    charting_type_desc=row["CHARTING_TYPE_DESC"],
+                    eff_date=row.get("EFF_DATE"),
+                    hp_name=row.get("HP_NAME"),
+                    hp_no=row.get("HP_NO"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    charting_type_desc=row.get("CHARTING_TYPE_DESC"),
                 )
                 self.hpf_chrt.append(record)
 
@@ -88,15 +88,15 @@ class HPFs:
 
             for row in reader:
                 record = HPF_RMK(
-                    eff_date=row["EFF_DATE"],
-                    hp_name=row["HP_NAME"],
-                    hp_no=row["HP_NO"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    tab_name=row["TAB_NAME"],
-                    ref_col_name=row["REF_COL_NAME"],
-                    ref_col_seq_no=row["REF_COL_SEQ_NO"],
-                    remark=row["REMARK"],
+                    eff_date=row.get("EFF_DATE"),
+                    hp_name=row.get("HP_NAME"),
+                    hp_no=row.get("HP_NO"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    tab_name=row.get("TAB_NAME"),
+                    ref_col_name=row.get("REF_COL_NAME"),
+                    ref_col_seq_no=row.get("REF_COL_SEQ_NO"),
+                    remark=row.get("REMARK"),
                 )
                 self.hpf_rmk.append(record)
 
@@ -110,13 +110,13 @@ class HPFs:
 
             for row in reader:
                 record = HPF_SPD_ALT(
-                    eff_date=row["EFF_DATE"],
-                    hp_name=row["HP_NAME"],
-                    hp_no=row["HP_NO"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    speed_range=row["SPEED_RANGE"],
-                    altitude=row["ALTITUDE"],
+                    eff_date=row.get("EFF_DATE"),
+                    hp_name=row.get("HP_NAME"),
+                    hp_no=row.get("HP_NO"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    speed_range=row.get("SPEED_RANGE"),
+                    altitude=row.get("ALTITUDE"),
                 )
                 self.hpf_spd_alt.append(record)
 

@@ -47,20 +47,20 @@ class MTRs:
 
             for row in reader:
                 record = MTR_AGY(
-                    eff_date=row["EFF_DATE"],
-                    route_type_code=row["ROUTE_TYPE_CODE"],
-                    route_id=row["ROUTE_ID"],
-                    artcc=row["ARTCC"],
-                    agency_type=row["AGENCY_TYPE"],
-                    agency_name=row["AGENCY_NAME"],
-                    station=row["STATION"],
-                    address=row["ADDRESS"],
-                    city=row["CITY"],
-                    state_code=row["STATE_CODE"],
-                    zip_code=row["ZIP_CODE"],
-                    commercial_no=row["COMMERCIAL_NO"],
-                    dsn_no=row["DSN_NO"],
-                    hours=row["HOURS"],
+                    eff_date=row.get("EFF_DATE"),
+                    route_type_code=row.get("ROUTE_TYPE_CODE"),
+                    route_id=row.get("ROUTE_ID"),
+                    artcc=row.get("ARTCC"),
+                    agency_type=row.get("AGENCY_TYPE"),
+                    agency_name=row.get("AGENCY_NAME"),
+                    station=row.get("STATION"),
+                    address=row.get("ADDRESS"),
+                    city=row.get("CITY"),
+                    state_code=row.get("STATE_CODE"),
+                    zip_code=row.get("ZIP_CODE"),
+                    commercial_no=row.get("COMMERCIAL_NO"),
+                    dsn_no=row.get("DSN_NO"),
+                    hours=row.get("HOURS"),
                 )
                 self.mtr_agy.append(record)
 
@@ -74,12 +74,12 @@ class MTRs:
 
             for row in reader:
                 record = MTR_BASE(
-                    eff_date=row["EFF_DATE"],
-                    route_type_code=row["ROUTE_TYPE_CODE"],
-                    route_id=row["ROUTE_ID"],
-                    artcc=row["ARTCC"],
-                    fss=row["FSS"],
-                    time_of_use=row["TIME_OF_USE"],
+                    eff_date=row.get("EFF_DATE"),
+                    route_type_code=row.get("ROUTE_TYPE_CODE"),
+                    route_id=row.get("ROUTE_ID"),
+                    artcc=row.get("ARTCC"),
+                    fss=row.get("FSS"),
+                    time_of_use=row.get("TIME_OF_USE"),
                 )
                 self.mtr_base.append(record)
 
@@ -93,27 +93,27 @@ class MTRs:
 
             for row in reader:
                 record = MTR_PT(
-                    eff_date=row["EFF_DATE"],
-                    route_type_code=row["ROUTE_TYPE_CODE"],
-                    route_id=row["ROUTE_ID"],
-                    artcc=row["ARTCC"],
-                    route_pt_seq=row["ROUTE_PT_SEQ"],
-                    route_pt_id=row["ROUTE_PT_ID"],
-                    next_route_pt_id=row["NEXT_ROUTE_PT_ID"],
-                    segment_text=row["SEGMENT_TEXT"],
-                    lat_deg=row["LAT_DEG"],
-                    lat_min=row["LAT_MIN"],
-                    lat_sec=row["LAT_SEC"],
-                    lat_hemis=row["LAT_HEMIS"],
-                    lat_decimal=row["LAT_DECIMAL"],
-                    lon_deg=row["LONG_DEG"],
-                    lon_min=row["LONG_MIN"],
-                    lon_sec=row["LONG_SEC"],
-                    lon_hemis=row["LONG_HEMIS"],
-                    lon_decimal=row["LONG_DECIMAL"],
-                    nav_id=row["NAV_ID"],
-                    navaid_bearing=row["NAVAID_BEARING"],
-                    navaid_dist=row["NAVAID_DIST"],
+                    eff_date=row.get("EFF_DATE"),
+                    route_type_code=row.get("ROUTE_TYPE_CODE"),
+                    route_id=row.get("ROUTE_ID"),
+                    artcc=row.get("ARTCC"),
+                    route_pt_seq=row.get("ROUTE_PT_SEQ"),
+                    route_pt_id=row.get("ROUTE_PT_ID"),
+                    next_route_pt_id=row.get("NEXT_ROUTE_PT_ID"),
+                    segment_text=row.get("SEGMENT_TEXT"),
+                    lat_deg=row.get("LAT_DEG"),
+                    lat_min=row.get("LAT_MIN"),
+                    lat_sec=row.get("LAT_SEC"),
+                    lat_hemis=row.get("LAT_HEMIS"),
+                    lat_decimal=row.get("LAT_DECIMAL"),
+                    lon_deg=row.get("LONG_DEG"),
+                    lon_min=row.get("LONG_MIN"),
+                    lon_sec=row.get("LONG_SEC"),
+                    lon_hemis=row.get("LONG_HEMIS"),
+                    lon_decimal=row.get("LONG_DECIMAL"),
+                    nav_id=row.get("NAV_ID"),
+                    navaid_bearing=row.get("NAVAID_BEARING"),
+                    navaid_dist=row.get("NAVAID_DIST"),
                 )
                 self.mtr_pt.append(record)
 
@@ -127,12 +127,12 @@ class MTRs:
 
             for row in reader:
                 record = MTR_SOP(
-                    eff_date=row["EFF_DATE"],
-                    route_type_code=row["ROUTE_TYPE_CODE"],
-                    route_id=row["ROUTE_ID"],
-                    artcc=row["ARTCC"],
-                    sop_seq_no=row["SOP_SEQ_NO"],
-                    sop_text=row["SOP_TEXT"],
+                    eff_date=row.get("EFF_DATE"),
+                    route_type_code=row.get("ROUTE_TYPE_CODE"),
+                    route_id=row.get("ROUTE_ID"),
+                    artcc=row.get("ARTCC"),
+                    sop_seq_no=row.get("SOP_SEQ_NO"),
+                    sop_text=row.get("SOP_TEXT"),
                 )
                 self.mtr_sop.append(record)
 
@@ -146,12 +146,12 @@ class MTRs:
 
             for row in reader:
                 record = MTR_TERR(
-                    eff_date=row["EFF_DATE"],
-                    route_type_code=row["ROUTE_TYPE_CODE"],
-                    route_id=row["ROUTE_ID"],
-                    artcc=row["ARTCC"],
-                    terrain_seq_no=row["TERRAIN_SEQ_NO"],
-                    terrain_text=row["TERRAIN_TEXT"],
+                    eff_date=row.get("EFF_DATE"),
+                    route_type_code=row.get("ROUTE_TYPE_CODE"),
+                    route_id=row.get("ROUTE_ID"),
+                    artcc=row.get("ARTCC"),
+                    terrain_seq_no=row.get("TERRAIN_SEQ_NO"),
+                    terrain_text=row.get("TERRAIN_TEXT"),
                 )
                 self.mtr_terr.append(record)
 
@@ -165,12 +165,12 @@ class MTRs:
 
             for row in reader:
                 record = MTR_WDTH(
-                    eff_date=row["EFF_DATE"],
-                    route_type_code=row["ROUTE_TYPE_CODE"],
-                    route_id=row["ROUTE_ID"],
-                    artcc=row["ARTCC"],
-                    width_seq_no=row["WIDTH_SEQ_NO"],
-                    width_text=row["WIDTH_TEXT"],
+                    eff_date=row.get("EFF_DATE"),
+                    route_type_code=row.get("ROUTE_TYPE_CODE"),
+                    route_id=row.get("ROUTE_ID"),
+                    artcc=row.get("ARTCC"),
+                    width_seq_no=row.get("WIDTH_SEQ_NO"),
+                    width_text=row.get("WIDTH_TEXT"),
                 )
                 self.mtr_wdth.append(record)
 

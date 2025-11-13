@@ -38,32 +38,32 @@ class FIXs:
 
             for row in reader:
                 record = FIX_BASE(
-                    eff_date=row["EFF_DATE"],
-                    fix_id=row["FIX_ID"],
-                    icao_region_code=row["ICAO_REGION_CODE"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    lat_deg=row["LAT_DEG"],
-                    lat_min=row["LAT_MIN"],
-                    lat_sec=row["LAT_SEC"],
-                    lat_hemis=row["LAT_HEMIS"],
-                    lat_decimal=row["LAT_DECIMAL"],
-                    lon_deg=row["LONG_DEG"],
-                    lon_min=row["LONG_MIN"],
-                    lon_sec=row["LONG_SEC"],
-                    lon_hemis=row["LONG_HEMIS"],
-                    lon_decimal=row["LONG_DECIMAL"],
-                    fix_id_old=row["FIX_ID_OLD"],
-                    charting_remark=row["CHARTING_REMARK"],
-                    fix_use_code=row["FIX_USE_CODE"],
-                    artcc_id_high=row["ARTCC_ID_HIGH"],
-                    artcc_id_low=row["ARTCC_ID_LOW"],
-                    pitch_flag=row["PITCH_FLAG"],
-                    catch_flag=row["CATCH_FLAG"],
-                    sua_atcaa_flag=row["SUA_ATCAA_FLAG"],
-                    min_recep_alt=row["MIN_RECEP_ALT"],
-                    compulsory=row["COMPULSORY"],
-                    charts=row["CHARTS"],
+                    eff_date=row.get("EFF_DATE"),
+                    fix_id=row.get("FIX_ID"),
+                    icao_region_code=row.get("ICAO_REGION_CODE"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    lat_deg=row.get("LAT_DEG"),
+                    lat_min=row.get("LAT_MIN"),
+                    lat_sec=row.get("LAT_SEC"),
+                    lat_hemis=row.get("LAT_HEMIS"),
+                    lat_decimal=row.get("LAT_DECIMAL"),
+                    lon_deg=row.get("LONG_DEG"),
+                    lon_min=row.get("LONG_MIN"),
+                    lon_sec=row.get("LONG_SEC"),
+                    lon_hemis=row.get("LONG_HEMIS"),
+                    lon_decimal=row.get("LONG_DECIMAL"),
+                    fix_id_old=row.get("FIX_ID_OLD"),
+                    charting_remark=row.get("CHARTING_REMARK"),
+                    fix_use_code=row.get("FIX_USE_CODE"),
+                    artcc_id_high=row.get("ARTCC_ID_HIGH"),
+                    artcc_id_low=row.get("ARTCC_ID_LOW"),
+                    pitch_flag=row.get("PITCH_FLAG"),
+                    catch_flag=row.get("CATCH_FLAG"),
+                    sua_atcaa_flag=row.get("SUA_ATCAA_FLAG"),
+                    min_recep_alt=row.get("MIN_RECEP_ALT"),
+                    compulsory=row.get("COMPULSORY"),
+                    charts=row.get("CHARTS"),
                 )
                 self.fix_base.append(record)
 
@@ -77,12 +77,12 @@ class FIXs:
 
             for row in reader:
                 record = FIX_CHRT(
-                    eff_date=row["EFF_DATE"],
-                    fix_id=row["FIX_ID"],
-                    icao_region_code=row["ICAO_REGION_CODE"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    charting_type_desc=row["CHARTING_TYPE_DESC"],
+                    eff_date=row.get("EFF_DATE"),
+                    fix_id=row.get("FIX_ID"),
+                    icao_region_code=row.get("ICAO_REGION_CODE"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    charting_type_desc=row.get("CHARTING_TYPE_DESC"),
                 )
                 self.fix_chrt.append(record)
 
@@ -96,15 +96,15 @@ class FIXs:
 
             for row in reader:
                 record = FIX_NAV(
-                    eff_date=row["EFF_DATE"],
-                    fix_id=row["FIX_ID"],
-                    icao_region_code=row["ICAO_REGION_CODE"],
-                    state_code=row["STATE_CODE"],
-                    country_code=row["COUNTRY_CODE"],
-                    nav_id=row["NAV_ID"],
-                    nav_type=row["NAV_TYPE"],
-                    bearing=row["BEARING"],
-                    distance=row["DISTANCE"],
+                    eff_date=row.get("EFF_DATE"),
+                    fix_id=row.get("FIX_ID"),
+                    icao_region_code=row.get("ICAO_REGION_CODE"),
+                    state_code=row.get("STATE_CODE"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    nav_id=row.get("NAV_ID"),
+                    nav_type=row.get("NAV_TYPE"),
+                    bearing=row.get("BEARING"),
+                    distance=row.get("DISTANCE"),
                 )
                 self.fix_nav.append(record)
 

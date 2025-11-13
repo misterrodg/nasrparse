@@ -3,7 +3,9 @@ from datetime import datetime, date
 import re
 
 
-def to_nullable_bool(string: str) -> bool | None:
+def to_nullable_bool(string: str | None) -> bool | None:
+    if string is None:
+        return None
     string = string.strip()
     if string == "Y":
         return True
@@ -12,7 +14,9 @@ def to_nullable_bool(string: str) -> bool | None:
     return None
 
 
-def to_nullable_date(string: str, format: str) -> date | None:
+def to_nullable_date(string: str | None, format: str) -> date | None:
+    if string is None:
+        return None
     string = string.strip()
     if string == "":
         return None
@@ -31,7 +35,9 @@ def to_nullable_date(string: str, format: str) -> date | None:
         return None
 
 
-def to_nullable_float(string: str) -> float | None:
+def to_nullable_float(string: str | None) -> float | None:
+    if string is None:
+        return None
     string = string.strip()
     if string == "":
         return None
@@ -46,7 +52,9 @@ def to_nullable_float(string: str) -> float | None:
         return None
 
 
-def to_nullable_int(string: str) -> int | None:
+def to_nullable_int(string: str | None) -> int | None:
+    if string is None:
+        return None
     string = string.strip()
     if string == "":
         return None
@@ -61,7 +69,9 @@ def to_nullable_int(string: str) -> int | None:
         return None
 
 
-def to_nullable_string(string: str) -> str | None:
+def to_nullable_string(string: str | None) -> str | None:
+    if string is None:
+        return None
     string = string.strip()
     if string == "":
         return None
@@ -80,7 +90,9 @@ def __sec_to_deg(sec_val: float) -> float:
     return sec_val / SEC_IN_MIN / MIN_IN_DEG
 
 
-def to_nullable_position(string: str) -> float | None:
+def to_nullable_position(string: str | None) -> float | None:
+    if string is None:
+        return None
     string = string.strip()
     if string == "":
         return None

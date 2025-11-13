@@ -41,30 +41,30 @@ class MAAs:
 
             for row in reader:
                 record = MAA_BASE(
-                    eff_date=row["EFF_DATE"],
-                    maa_id=row["MAA_ID"],
-                    maa_type_name=row["MAA_TYPE_NAME"],
-                    nav_id=row["NAV_ID"],
-                    nav_type=row["NAV_TYPE"],
-                    nav_radial=row["NAV_RADIAL"],
-                    nav_distance=row["NAV_DISTANCE"],
-                    state_code=row["STATE_CODE"],
-                    city=row["CITY"],
-                    latitude=row["LATITUDE"],
-                    longitude=row["LONGITUDE"],
-                    arpt_ids=row["ARPT_IDS"],
-                    nearest_arpt=row["NEAREST_ARPT"],
-                    nearest_arpt_dist=row["NEAREST_ARPT_DIST"],
-                    nearest_arpt_dir=row["NEAREST_ARPT_DIR"],
-                    maa_name=row["MAA_NAME"],
-                    max_alt=row["MAX_ALT"],
-                    min_alt=row["MIN_ALT"],
-                    maa_radius=row["MAA_RADIUS"],
-                    description=row["DESCRIPTION"],
-                    maa_use=row["MAA_USE"],
-                    check_notams=row["CHECK_NOTAMS"],
-                    time_of_use=row["TIME_OF_USE"],
-                    user_group_name=row["USER_GROUP_NAME"],
+                    eff_date=row.get("EFF_DATE"),
+                    maa_id=row.get("MAA_ID"),
+                    maa_type_name=row.get("MAA_TYPE_NAME"),
+                    nav_id=row.get("NAV_ID"),
+                    nav_type=row.get("NAV_TYPE"),
+                    nav_radial=row.get("NAV_RADIAL"),
+                    nav_distance=row.get("NAV_DISTANCE"),
+                    state_code=row.get("STATE_CODE"),
+                    city=row.get("CITY"),
+                    latitude=row.get("LATITUDE"),
+                    longitude=row.get("LONGITUDE"),
+                    arpt_ids=row.get("ARPT_IDS"),
+                    nearest_arpt=row.get("NEAREST_ARPT"),
+                    nearest_arpt_dist=row.get("NEAREST_ARPT_DIST"),
+                    nearest_arpt_dir=row.get("NEAREST_ARPT_DIR"),
+                    maa_name=row.get("MAA_NAME"),
+                    max_alt=row.get("MAX_ALT"),
+                    min_alt=row.get("MIN_ALT"),
+                    maa_radius=row.get("MAA_RADIUS"),
+                    description=row.get("DESCRIPTION"),
+                    maa_use=row.get("MAA_USE"),
+                    check_notams=row.get("CHECK_NOTAMS"),
+                    time_of_use=row.get("TIME_OF_USE"),
+                    user_group_name=row.get("USER_GROUP_NAME"),
                 )
                 self.maa_base.append(record)
 
@@ -78,15 +78,15 @@ class MAAs:
 
             for row in reader:
                 record = MAA_CON(
-                    eff_date=row["EFF_DATE"],
-                    maa_id=row["MAA_ID"],
-                    freq_seq=row["FREQ_SEQ"],
-                    fac_id=row["FAC_ID"],
-                    fac_name=row["FAC_NAME"],
-                    commercial_freq=row["COMMERCIAL_FREQ"],
-                    commercial_chart_flag=row["COMMERCIAL_CHART_FLAG"],
-                    mil_freq=row["MIL_FREQ"],
-                    mil_chart_flag=row["MIL_CHART_FLAG"],
+                    eff_date=row.get("EFF_DATE"),
+                    maa_id=row.get("MAA_ID"),
+                    freq_seq=row.get("FREQ_SEQ"),
+                    fac_id=row.get("FAC_ID"),
+                    fac_name=row.get("FAC_NAME"),
+                    commercial_freq=row.get("COMMERCIAL_FREQ"),
+                    commercial_chart_flag=row.get("COMMERCIAL_CHART_FLAG"),
+                    mil_freq=row.get("MIL_FREQ"),
+                    mil_chart_flag=row.get("MIL_CHART_FLAG"),
                 )
                 self.maa_con.append(record)
 
@@ -100,12 +100,12 @@ class MAAs:
 
             for row in reader:
                 record = MAA_RMK(
-                    eff_date=row["EFF_DATE"],
-                    maa_id=row["MAA_ID"],
-                    tab_name=row["TAB_NAME"],
-                    ref_col_name=row["REF_COL_NAME"],
-                    ref_col_seq_no=row["REF_COL_SEQ_NO"],
-                    remark=row["REMARK"],
+                    eff_date=row.get("EFF_DATE"),
+                    maa_id=row.get("MAA_ID"),
+                    tab_name=row.get("TAB_NAME"),
+                    ref_col_name=row.get("REF_COL_NAME"),
+                    ref_col_seq_no=row.get("REF_COL_SEQ_NO"),
+                    remark=row.get("REMARK"),
                 )
                 self.maa_rmk.append(record)
 
@@ -119,11 +119,11 @@ class MAAs:
 
             for row in reader:
                 record = MAA_SHP(
-                    eff_date=row["EFF_DATE"],
-                    maa_id=row["MAA_ID"],
-                    point_seq=row["POINT_SEQ"],
-                    latitude=row["LATITUDE"],
-                    longitude=row["LONGITUDE"],
+                    eff_date=row.get("EFF_DATE"),
+                    maa_id=row.get("MAA_ID"),
+                    point_seq=row.get("POINT_SEQ"),
+                    latitude=row.get("LATITUDE"),
+                    longitude=row.get("LONGITUDE"),
                 )
                 self.maa_shp.append(record)
 

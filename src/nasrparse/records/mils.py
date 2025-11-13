@@ -32,19 +32,19 @@ class MILs:
 
             for row in reader:
                 record = MIL_BASE(
-                    eff_date=row["EFF_DATE"],
-                    site_no=row["SITE_NO"],
-                    site_type_code=row["SITE_TYPE_CODE"],
-                    state_code=row["STATE_CODE"],
-                    arpt_id=row["ARPT_ID"],
-                    city=row["CITY"],
-                    country_code=row["COUNTRY_CODE"],
-                    mil_ops_oper_code=row["MIL_OPS_OPER_CODE"],
-                    mil_ops_call=row["MIL_OPS_CALL"],
-                    mil_ops_hrs=row["MIL_OPS_HRS"],
-                    amcp_hrs=row["AMCP_HRS"],
-                    pmsv_hrs=row["PMSV_HRS"],
-                    remark=row["REMARK"],
+                    eff_date=row.get("EFF_DATE"),
+                    site_no=row.get("SITE_NO"),
+                    site_type_code=row.get("SITE_TYPE_CODE"),
+                    state_code=row.get("STATE_CODE"),
+                    arpt_id=row.get("ARPT_ID"),
+                    city=row.get("CITY"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    mil_ops_oper_code=row.get("MIL_OPS_OPER_CODE"),
+                    mil_ops_call=row.get("MIL_OPS_CALL"),
+                    mil_ops_hrs=row.get("MIL_OPS_HRS"),
+                    amcp_hrs=row.get("AMCP_HRS"),
+                    pmsv_hrs=row.get("PMSV_HRS"),
+                    remark=row.get("REMARK"),
                 )
                 self.mil_base.append(record)
 

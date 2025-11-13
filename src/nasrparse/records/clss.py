@@ -32,19 +32,19 @@ class CLSs:
 
             for row in reader:
                 record = CLS_ARSP(
-                    eff_date=row["EFF_DATE"],
-                    site_no=row["SITE_NO"],
-                    site_type_code=row["SITE_TYPE_CODE"],
-                    state_code=row["STATE_CODE"],
-                    arpt_id=row["ARPT_ID"],
-                    city=row["CITY"],
-                    country_code=row["COUNTRY_CODE"],
-                    class_b_airspace=row["CLASS_B_AIRSPACE"],
-                    class_c_airspace=row["CLASS_C_AIRSPACE"],
-                    class_d_airspace=row["CLASS_D_AIRSPACE"],
-                    class_e_airspace=row["CLASS_E_AIRSPACE"],
-                    airspace_hrs=row["AIRSPACE_HRS"],
-                    remark=row["REMARK"],
+                    eff_date=row.get("EFF_DATE"),
+                    site_no=row.get("SITE_NO"),
+                    site_type_code=row.get("SITE_TYPE_CODE"),
+                    state_code=row.get("STATE_CODE"),
+                    arpt_id=row.get("ARPT_ID"),
+                    city=row.get("CITY"),
+                    country_code=row.get("COUNTRY_CODE"),
+                    class_b_airspace=row.get("CLASS_B_AIRSPACE"),
+                    class_c_airspace=row.get("CLASS_C_AIRSPACE"),
+                    class_d_airspace=row.get("CLASS_D_AIRSPACE"),
+                    class_e_airspace=row.get("CLASS_E_AIRSPACE"),
+                    airspace_hrs=row.get("AIRSPACE_HRS"),
+                    remark=row.get("REMARK"),
                 )
                 self.cls_arsp.append(record)
 

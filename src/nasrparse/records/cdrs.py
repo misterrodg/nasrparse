@@ -32,18 +32,18 @@ class CDRs:
 
             for row in reader:
                 record = CDR_BASE(
-                    rcode=row["RCode"],
-                    orig=row["Orig"],
-                    dest=row["Dest"],
-                    depfix=row["DepFix"],
-                    route_string=row["Route String"],
-                    dcntr=row["DCNTR"],
-                    acntr=row["ACNTR"],
-                    tcntrs=row["TCNTRs"],
-                    coordreq=row["CoordReq"],
-                    play=row["Play"],
-                    naveqp=row["NavEqp"],
-                    length=row["Length"],
+                    rcode=row.get("RCode"),
+                    orig=row.get("Orig"),
+                    dest=row.get("Dest"),
+                    depfix=row.get("DepFix"),
+                    route_string=row.get("Route String"),
+                    dcntr=row.get("DCNTR"),
+                    acntr=row.get("ACNTR"),
+                    tcntrs=row.get("TCNTRs"),
+                    coordreq=row.get("CoordReq"),
+                    play=row.get("Play"),
+                    naveqp=row.get("NavEqp"),
+                    length=row.get("Length"),
                 )
                 self.cdr_base.append(record)
 
