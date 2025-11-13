@@ -11,12 +11,14 @@ a look at [NASRDiff](https://github.com/misterrodg/NASRDiff).
 
 ## Versions
 
-| Version | Description                    | Release Date |
-| ------- | ------------------------------ | ------------ |
-| 1.0.1   | `__repr()__` Bugfix for enums. | 2025-11-06   |
-| 1.0.0   | Initial public release.        | 2025-11-06   |
+| Version | Description                          | Release Date |
+| ------- | ------------------------------------ | ------------ |
+| 1.1.0   | Added `to_str()` methods to records. | 2025-11-12   |
+| 1.0.1   | `__repr()__` Bugfix for enums.       | 2025-11-06   |
+| 1.0.0   | Initial public release.              | 2025-11-06   |
 
-A changelog is available in the [CHANGELOG.md](./CHANGELOG.md) with additional detail and guidance.
+A changelog is available in the [CHANGELOG.md](./CHANGELOG.md) with additional 
+detail and guidance.
 
 ## Installation
 
